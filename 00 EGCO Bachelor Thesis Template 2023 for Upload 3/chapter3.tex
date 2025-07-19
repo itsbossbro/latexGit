@@ -1,0 +1,145 @@
+\chapter{METHODOLOGY}
+\section{System Design}
+
+	The purpose of the helmet detection system is to track helmet use from CCTV footage on a college campus. Data preparation, model training, and counting implementation are the three primary phases of the system. The first step involves converting campus CCTV video footage into image frames, which are subsequently labelled with helmet and unhelmeted head information using Roboflow. A customised YOLOv8 object detection model that is tuned for real-time performance is trained using the annotated dataset. After training, the model is incorporated into a real-time system that recognises and categorises heads and helmets by processing incoming video frames. In order to provide real-time statistics that facilitate safety compliance monitoring, a counting mechanism is integrated to monitor the quantity of helmets and heads seen within a designated area of interest.
+
+\begin{figure}[H] % Optional: [H] requires \usepackage{float}
+	
+	\includegraphics[width=1\textwidth]{flowchart.jpg}
+	\vspace{0.5em}
+	\noindent\textbf{Figure 3.1} \\
+	\caption*{} % Optional: if you want a caption, otherwise keep empty
+\end{figure}
+
+	 The flowchart illustrates the overall workflow of the system. It begins first obtaining the dataset, we obtain them through the cctv footage of the university camera. Specifically spliting the video footages into 3 frames per second using Roboflow. Then annotate each frames splited, the annoated items are helmet and head, then using data augmentations from Roboflow. Then we can downlaod the datasets. Finally, using dataset downloaded we can train locally through data.yaml, the data augmentations details are to be specified in Chapter 3. After the training we will receive the weighted .pt file, the file is the model that will be used in the system in conjunction with the pre-trained model from YOLOv8. The Implementation phase is to apply the models, work with the video stream input. The bounding box and region of interest made from cv2. Using these zone we speparate the counting zone for helmet, head, and another zone to count person and helmet. As for the person we decided to count the head and the helmet to total to person as there are issues about the camera angel limiting the accuracy of the person detection. 
+	
+	After implementing the program with the model, we use cv2 to take snapshot of the frame as when helmet violation occur. The system links and uses Google API, to store the detection evidence of the scenario. The Google Sheet API will append new rows each time a head detection occur.  The image are visible, and stored by Google Drive API, to check the instances where it happens.
+	
+\section{Data}
+Dataset: videos of riders wearing and not wearing helmets, collected from local sources which is gate six Mahidol University CCTV camera. Videos will then be split in Roboflow which allow custom annotation and training.
+\newline
+\newline
+Annotations: Create two classes. first class containing the bouding box of helmet user only and the second class containing head(which is non-helmet user.)
+\newline
+Preprocessing: Includes resizing images to 640x640 pixels, normalizing pixel values, and applying augmentations (e.g., rotation, scaling, and brightness adjustments).
+
+
+\section{Custom Model}
+\textbf{YOLOv8 Architecture:}
+
+	The YOLOv8 model was chosen due to its real-time detection capabilities and high accuracy for object detection tasks.
+	Custom classes were defined for detection: motorcycles, helmets, crosswalks, pedestrians, and lanes.
+
+
+\textbf{Training Process:}
+\begin{itemize}
+	 \item The model was trained on a dataset collected from University CCTV footage of two-hours at a spand of seven days during 8:00-10:00 am to monitor the motorbike riders's safey.
+	\item The video footage are then extracted by frame, for our project, we extrated them inside Roboflow into 3 frames-per-second.
+	\item After the clips has been extracted, we can use the bouding box to draw on the helmet and head, and lable them accordingly.
+	\item When the annoation is finish for the clips we move the annotated image into dataset, slilting them into Train, Validate, Test and download the data set into the device.
+	\item Using data.yaml file to adjust the training configuration., and put them inside VS code.
+	\item Data augmentation techniques such as flipping, contrast adjustments, and brightness changes were applied during training to improve generalization.
+	\item The configurations needed used inside data.yaml is located in the Hyperparameter section.
+	\item Hyperparameters, such as learning rate and non-maximum suppression (NMS) thresholds, were tuned for optimal performance.
+	\item After the training has been finish the wieghted model files will be created in runs/detect select the .pt files as a yolo model.
+\end{itemize}
+
+\section{\textbf{Counting System}}
+\subsection{Helmet and Head}
+
+	\noindent\hspace{2.5em}After customizing our YOLOv8 model, we implemented a counting system to track the number of helmets, unhelmeted heads, persons, and motorcycles detected in the video.
+	
+	
+	\noindent\hspace{2.5em}For helmet and head counting, we applied a double-line counting method. This defines a "counting zone" using two vertical lines, and only counts detections whose bounding box centers fall within the zone. To prevent duplicate counting across frames, we used a rolling memory of the last ten frames. If a new detection is within a set distance (e.g., 30 pixels) of a previously counted object of the same type, it is ignored.
+	\newline
+	This method improves reliability by reducing overcounting and stabilizing results, especially for slow-moving or flickering detections. The final counts are updated in real time and displayed on the video, offering a clear summary of helmet usage and safety compliance.
+	\begin{figure}[H] % Optional: [H] requires \usepackage{float}
+		\centering
+		\includegraphics[width=0.5\textwidth]{headhel1.png}
+		\vspace{0.5em}
+		\caption*{\textbf{Figure 3.2}}
+	\end{figure}
+	\hfill
+	% Right side: Figure 3.3
+
+	\noindent\hspace{2.5em}Figure 3.2 illustrates the designated counting zone used for helmet and head detection. The image shows two vertical yellow lines placed 150 pixels apart, which define the area for double-line counting. When an object passes through both lines in sequence, it is registered as a valid count. This method helps reduce duplicate or false counts caused by temporary detection overlaps or brief tracking loss.
+	
+	\begin{figure}[H] % Optional: [H] requires \usepackage{float}
+		\centering
+		\includegraphics[width=0.5\textwidth]{headhel2.png}
+		\vspace{0.5em}
+		\caption*{\textbf{Figure 3.3}}
+	\end{figure}
+	
+	\noindent\hspace{2.5em}Figure 3.3 shows an example of the counting system in action when objects, such as a helmet and/or a head, enter the counting zone. As seen in the image, the objects are detected and labeled while passing through the two vertical lines, triggering the counting logic. This illustrates how the system identifies and differentiates helmeted and non-helmeted riders within the defined zone.
+	
+	\begin{figure}[H] % Optional: [H] requires \usepackage{float}
+		\centering
+		\includegraphics[width=0.5\textwidth]{headhel3.png}
+		\vspace{0.5em}
+		\caption*{\textbf{Figure 3.4}}
+	\end{figure}
+	
+		\noindent\hspace{2.5em}Figure 3.4 displays the result of the helmet and head counting process, shown at the top-right corner of the screen. These values are updated in real-time after the system detects and counts objects passing through the counting zone. This visual feedback confirms the detection and classification outcome for each rider, distinguishing between helmeted and non-helmeted individuals.
+	
+	
+	
+	
+\subsection{Person and Motorbike}
+\noindent\hspace{2.5em}However as for the Person, and Motorbike detection we can use the Yolov8s.pt model, class 0(person), and class 3(motorbike), as their model are well polished for tracking. For the tracking use Bot-sort tracker, obtain through Roboflow ultralytics/trackers/bot\_sort.py. The tracker will be use to create specific id number for each class that has been detected. Using these id we will create center point of each classes which will be important in the counting method.
+
+
+\noindent\hspace{2.5em}For the counting method, we can create a region of interest, through using open CV. From there we create a condition, to store the track id with track history. track\_history = {}   function will store the position cx, cy of the tracked object. We will use this value to identify its current and previous position to ensure that when object inside the Region of Interest, position compare is is greater than the current position objected will not be used to count, while if the current position of the tracked id compared to stored id is less than it, it can be counted inside the ROI. This is to ensure that the person, and motorbike can be counted by by what it can be tracked. The detection should look similiar to figure1.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{fig1.png}
+	
+	\vspace{0.5em}
+	\textbf{Figure 3.5}
+\end{center}
+
+
+\subsection{Output Generation}
+\noindent\hspace{2.5em}The output generation phase transforms the detection and counting results into a visual and interpretable format. For each processed video frame, the system overlays bounding boxes and labels indicating the object class (helmet, head, person, or motorcycle), along with live counts displayed on the top-left corner using OpenCV. These real-time visual indicators allow users to monitor helmet usage compliance at a glance. Additionally, the system can produce an annotated video file as output, which includes all detections and updated counts across the entire duration. This output is valuable for both immediate observation and later review or reporting, providing a clear and documented summary of safety compliance in the monitored area.
+
+\subsection{Storing Output in Google Sheet API}
+\noindent\hspace{2.5em}After the output has been generated, we store the detection into a log using Google API from the video steam. The Google API integration is used for logging and evidence storage for helmet violation cases. Firstly as mention the two model, YOLOv8 pre-trained model, and custom model for head/helmet detection. How the system is works is, when a head is detected within the zone. The frames will be stored, using cv2 to snap-shot the specific frame of head detection. We log the detections events to Google Sheet, it records, the timestamp, head detection, alert, and link to Google Drive file to the captured image.
+
+
+\noindent\hspace{2.5em}The credentials.json file can be obtained through Google API, the system will connect to pre-defined Google Sheet as we name them(Data log) and appneds the new rows with each detection events that occurs, the image are uploaded to Google Drive using the Drive API, and public access links are generated per log. This implementation allows users to store datas of the detection, this is to allow scalable and automated solution for monitoring helmet violations. The result is as seen in the figure below.
+
+\begin{center}
+	\includegraphics[width=1\textwidth]{api.png}
+	
+	\vspace{0.5em}
+	\textbf{Figure 3.6}
+\end{center}
+
+\section{Tools and Frameworks}
+\begin{itemize}
+	\item \textbf{YOLOv8 Framework}: For object detection.
+	\item \textbf{Libraries}: Python libraries such as ultralytics, opencv-python, numpy, collections.
+	\item \textbf{Annotation Tools}: Roboflow.
+	
+\end{itemize}
+
+
+\section{Hyperparameter Configurations}
+Key hyperparameters used during training included:
+
+Image size: 640 pixels
+Batch size: 32
+Epochs: 500
+
+depending on convergence and performance on the validation set.
+
+the epochs can be changed depending on the accuracy of the detection.
+Data  Augmentation : Flip , Change contrast, Rotate , Change brightnes
+(Can be changed later)
+
+\section{Performace Evaluation}
+
+The trained YOLOv8 model was evaluated using:
+mAP: To quantify detection accuracy.
+Confusion matrix: To identify true positives, false positives, and negatives.
+The purpose of the performance evaluation is to help our team, look at the development of the different models. The benefits of finding the best model is to use them for the best accuracy for the counting systems.

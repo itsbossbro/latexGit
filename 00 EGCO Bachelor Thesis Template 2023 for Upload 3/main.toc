@@ -1,0 +1,47 @@
+\thispagestyle {front}
+~\hfill {\bfseries Page}\par 
+\selectlanguage *[]{english}
+\contentsline {chapter}{BIOGRAPHY}{i}{}%
+\contentsline {chapter}{ACKNOWLEDGEMENT}{iii}{}%
+\contentsline {chapter}{ABSTRACT (THAI)}{iv}{}%
+\contentsline {chapter}{ABSTRACT (ENGLISH)}{v}{}%
+\contentsline {chapter}{CONTENTS}{vi}{}%
+\contentsline {chapter}{LIST OF TABLES}{viii}{}%
+\contentsline {chapter}{LIST OF FIGURES}{ix}{}%
+\contentsline {chapter}{\numberline {1}INTRODUCTION}{1}{}%
+\contentsline {section}{\numberline {1.1}Background}{1}{}%
+\contentsline {section}{\numberline {1.2}Objective}{1}{}%
+\contentsline {section}{\numberline {1.3}Scope}{1}{}%
+\contentsline {section}{\numberline {1.4}Expected Results}{2}{}%
+\contentsline {section}{\numberline {1.5}Timeline}{2}{}%
+\contentsline {chapter}{\numberline {2}LITERATURE REVIEW}{3}{}%
+\contentsline {section}{\numberline {2.1}Video Image Recognition of Car Track Characteristics at Intersections \cite {paper_1}}{3}{}%
+\contentsline {section}{\numberline {2.2}A Lightweight Remote Sensing Small Target Image Detection Algorithm Based on Improved YOLOv8 \cite {paper_2}}{4}{}%
+\contentsline {section}{\numberline {2.3}Traffic Detection and Enhancing Traffic Safety: YOLO V8 Framework and OCR for Violation Detection Using Deep Learning Techniques \cite {paper_3}}{4}{}%
+\contentsline {section}{\numberline {2.4}Smart Traffic Management System for Efficient Mobility and Emergency Response \cite {paper_4}}{5}{}%
+\contentsline {section}{\numberline {2.5}Utilizing Image Processing and the YOLOv3 Network for Real-Time Traffic Light Control \cite {paper_5}}{6}{}%
+\contentsline {section}{\numberline {2.6}Research on Vehicle Lane Change Warning Method Based on Deep Learning Image Processing \cite {paper_6}}{7}{}%
+\contentsline {section}{\numberline {2.7}Summary}{8}{}%
+\contentsline {chapter}{\numberline {3}METHODOLOGY}{9}{}%
+\contentsline {section}{\numberline {3.1}System Design}{9}{}%
+\contentsline {section}{\numberline {3.2}Data}{11}{}%
+\contentsline {section}{\numberline {3.3}Custom Model}{11}{}%
+\contentsline {section}{\numberline {3.4}\textbf {Counting System}}{12}{}%
+\contentsline {subsection}{\numberline {3.4.1}Helmet and Head}{12}{}%
+\contentsline {subsection}{\numberline {3.4.2}Person and Motorbike}{15}{}%
+\contentsline {subsection}{\numberline {3.4.3}Output Generation}{15}{}%
+\contentsline {subsection}{\numberline {3.4.4}Storing Output in Google Sheet API}{16}{}%
+\contentsline {section}{\numberline {3.5}Tools and Frameworks}{17}{}%
+\contentsline {section}{\numberline {3.6}Hyperparameter Configurations}{17}{}%
+\contentsline {section}{\numberline {3.7}Performace Evaluation}{17}{}%
+\contentsline {chapter}{\numberline {4}RESULT}{18}{}%
+\contentsline {section}{\numberline {4.1}Model Result}{19}{}%
+\contentsline {section}{\numberline {4.2}Counting Result}{20}{}%
+\contentsline {section}{\numberline {4.3}Discussions}{21}{}%
+\contentsline {subsection}{\numberline {4.3.1}Model Improvement}{21}{}%
+\contentsline {subsection}{\numberline {4.3.2}Helmet and Head Double Line Counting}{21}{}%
+\contentsline {subsection}{\numberline {4.3.3}Person and Motorbike BotSort Counting}{22}{}%
+\contentsline {chapter}{\numberline {5}Conclusion and Discussion}{23}{}%
+\contentsline {section}{\numberline {5.1}Obstacles}{23}{}%
+\contentsline {section}{\numberline {5.2}Future Work}{23}{}%
+\contentsline {chapter}{REFERENCES}{25}{}%
