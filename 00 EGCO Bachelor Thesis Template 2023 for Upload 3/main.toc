@@ -25,23 +25,23 @@
 \contentsline {chapter}{\numberline {3}METHODOLOGY}{9}{}%
 \contentsline {section}{\numberline {3.1}System Design}{9}{}%
 \contentsline {section}{\numberline {3.2}Data}{11}{}%
-\contentsline {section}{\numberline {3.3}Custom Model}{11}{}%
-\contentsline {section}{\numberline {3.4}\textbf {Counting System}}{12}{}%
-\contentsline {subsection}{\numberline {3.4.1}Helmet and Head}{12}{}%
-\contentsline {subsection}{\numberline {3.4.2}Person and Motorbike}{15}{}%
-\contentsline {subsection}{\numberline {3.4.3}Output Generation}{15}{}%
-\contentsline {subsection}{\numberline {3.4.4}Storing Output in Google Sheet API}{16}{}%
-\contentsline {section}{\numberline {3.5}Tools and Frameworks}{17}{}%
-\contentsline {section}{\numberline {3.6}Hyperparameter Configurations}{17}{}%
-\contentsline {section}{\numberline {3.7}Performace Evaluation}{17}{}%
-\contentsline {chapter}{\numberline {4}RESULT}{18}{}%
-\contentsline {section}{\numberline {4.1}Model Result}{19}{}%
-\contentsline {section}{\numberline {4.2}Counting Result}{20}{}%
-\contentsline {section}{\numberline {4.3}Discussions}{21}{}%
-\contentsline {subsection}{\numberline {4.3.1}Model Improvement}{21}{}%
-\contentsline {subsection}{\numberline {4.3.2}Helmet and Head Double Line Counting}{21}{}%
-\contentsline {subsection}{\numberline {4.3.3}Person and Motorbike BotSort Counting}{22}{}%
-\contentsline {chapter}{\numberline {5}Conclusion and Discussion}{23}{}%
-\contentsline {section}{\numberline {5.1}Obstacles}{23}{}%
-\contentsline {section}{\numberline {5.2}Future Work}{23}{}%
-\contentsline {chapter}{REFERENCES}{25}{}%
+\contentsline {section}{\numberline {3.3}Custom Model}{12}{}%
+\contentsline {section}{\numberline {3.4}\textbf {Counting System}}{18}{}%
+\contentsline {subsection}{\numberline {3.4.1}Helmet and Head}{18}{}%
+\contentsline {subsection}{\numberline {3.4.2}Person and Motorbike}{21}{}%
+\contentsline {subsection}{\numberline {3.4.3}Output Generation}{21}{}%
+\contentsline {subsection}{\numberline {3.4.4}Storing Output in Google Sheet API}{22}{}%
+\contentsline {section}{\numberline {3.5}Tools and Frameworks}{23}{}%
+\contentsline {section}{\numberline {3.6}Hyperparameter Configurations}{23}{}%
+\contentsline {section}{\numberline {3.7}Performace Evaluation}{23}{}%
+\contentsline {chapter}{\numberline {4}RESULT}{25}{}%
+\contentsline {section}{\numberline {4.1}Model Result}{26}{}%
+\contentsline {section}{\numberline {4.2}Counting Result}{27}{}%
+\contentsline {section}{\numberline {4.3}Discussions}{28}{}%
+\contentsline {subsection}{\numberline {4.3.1}Model Improvement}{28}{}%
+\contentsline {subsection}{\numberline {4.3.2}Helmet and Head Double Line Counting}{28}{}%
+\contentsline {subsection}{\numberline {4.3.3}Person and Motorbike BotSort Counting}{29}{}%
+\contentsline {chapter}{\numberline {5}Conclusion and Discussion}{30}{}%
+\contentsline {section}{\numberline {5.1}Obstacles}{30}{}%
+\contentsline {section}{\numberline {5.2}Future Work}{30}{}%
+\contentsline {chapter}{REFERENCES}{32}{}%

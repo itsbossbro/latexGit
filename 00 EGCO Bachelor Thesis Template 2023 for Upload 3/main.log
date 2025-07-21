@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.3)  17 JUL 2025 19:52
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.1)  22 JUL 2025 01:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1019,47 +1019,77 @@ File: flowchart.jpg Graphic file (type bmp)
 [9
 
 ] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 19--25
+Underfull \hbox (badness 10000) in paragraph at lines 21--27
 
  []
 
 [11]
+File: roboflow.png Graphic file (type bmp)
+<roboflow.png>
+File: yolo.png Graphic file (type bmp)
+<yolo.png>
+ [12]
+File: Datasets.png Graphic file (type bmp)
+<Datasets.png>
+File: Frameex.png Graphic file (type bmp)
+<Frameex.png>
+ [13]
+File: Anotate.png Graphic file (type bmp)
+<Anotate.png>
+ [14]
+File: Split.png Graphic file (type bmp)
+<Split.png>
+ [15]
+File: Augmentation.png Graphic file (type bmp)
+<Augmentation.png>
+File: Files.png Graphic file (type bmp)
+<Files.png>
+ [16]
+File: yaml.png Graphic file (type bmp)
+<yaml.png>
+ [17]
 File: headhel1.png Graphic file (type bmp)
 <headhel1.png>
- [12]
+ [18]
 File: headhel2.png Graphic file (type bmp)
 <headhel2.png>
- [13]
+ [19]
 File: headhel3.png Graphic file (type bmp)
 <headhel3.png>
- [14]
+ [20]
 File: fig1.png Graphic file (type bmp)
 <fig1.png>
- [15]
+ [21]
+File: out.png Graphic file (type bmp)
+<out.png>
+File: live.png Graphic file (type bmp)
+<live.png>
+ [22]
 File: api.png Graphic file (type bmp)
 <api.png>
- [16]) (./chapter4.tex [17]
+) (./chapter4.tex
+[23] [24]
 CHAPTER 4.
-[18
+[25
 
 ]
 File: model_result.png Graphic file (type bmp)
 <model_result.png>
 File: test1.png Graphic file (type bmp)
 <test1.png>
- [19]
+ [26]
 File: test2.png Graphic file (type bmp)
 <test2.png>
 File: test3.png Graphic file (type bmp)
 <test3.png>
- [20]
+ [27]
 File: test4.png Graphic file (type bmp)
 <test4.png>
- [21]) (./chapter5.tex [22]
+ [28]) (./chapter5.tex [29]
 CHAPTER 5.
-[23
+[30
 
-]) [24] (./main.bbl) [25
+]) [31] (./main.bbl) [32
 
 ]
 
@@ -1076,12 +1106,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 13530 strings out of 474773
- 280382 string characters out of 5757724
+ 13631 strings out of 474773
+ 281969 string characters out of 5757724
  1938839 words of memory out of 5000000
- 35410 multiletter control sequences out of 15000+600000
+ 35500 multiletter control sequences out of 15000+600000
  564084 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 94i,13n,113p,1200b,523s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,13n,113p,1211b,523s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (38 pages).
+Output written on main.pdf (45 pages).

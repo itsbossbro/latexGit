@@ -9,6 +9,8 @@
 	\vspace{0.5em}
 	\noindent\textbf{Figure 3.1} \\
 	\caption*{} % Optional: if you want a caption, otherwise keep empty
+	
+	
 \end{figure}
 
 	 The flowchart illustrates the overall workflow of the system. It begins first obtaining the dataset, we obtain them through the cctv footage of the university camera. Specifically spliting the video footages into 3 frames per second using Roboflow. Then annotate each frames splited, the annoated items are helmet and head, then using data augmentations from Roboflow. Then we can downlaod the datasets. Finally, using dataset downloaded we can train locally through data.yaml, the data augmentations details are to be specified in Chapter 3. After the training we will receive the weighted .pt file, the file is the model that will be used in the system in conjunction with the pre-trained model from YOLOv8. The Implementation phase is to apply the models, work with the video stream input. The bounding box and region of interest made from cv2. Using these zone we speparate the counting zone for helmet, head, and another zone to count person and helmet. As for the person we decided to count the head and the helmet to total to person as there are issues about the camera angel limiting the accuracy of the person detection. 
@@ -23,25 +25,93 @@ Annotations: Create two classes. first class containing the bouding box of helme
 \newline
 Preprocessing: Includes resizing images to 640x640 pixels, normalizing pixel values, and applying augmentations (e.g., rotation, scaling, and brightness adjustments).
 
-
+\newpage
 \section{Custom Model}
 \textbf{YOLOv8 Architecture:}
+The YOLOv8 architecture was selected for this project due to its state-of-the-art performance in object detection, offering a balance between real-time inference speed and high accuracy. YOLOv8 (You Only Look Once version 8), developed by Ultralytics, is known for its streamlined architecture and improved detection performance over its predecessors (e.g., YOLOv5, YOLOv7), particularly in low-light or occluded environments—conditions often encountered in real-world surveillance footage. Specifically for this project, YOLOv8 is supported by Roboflow, a tool important for training and annotating helmet and head classes easily. Additionally YOLOv8 was easier to set up and supported by developers and communities in a larger scale than other YOLO versions. This will be essentials in debugging and implementing additional tools like trackers. 
 
-	The YOLOv8 model was chosen due to its real-time detection capabilities and high accuracy for object detection tasks.
-	Custom classes were defined for detection: motorcycles, helmets, crosswalks, pedestrians, and lanes.
+Despite the availability of newer object detection models such as YOLO-NAS or YOLOv9, YOLOv8 remains a highly reliable and widely supported choice. In this project, YOLOv8 was used to create a custom-trained model that focuses on five specific object classes: motorcycles, helmets, crosswalks, pedestrians, and lanes. However, the two most critical objects for our safety analysis—helmet and head—were prioritized in both annotation and evaluation.
 
 
-\textbf{Training Process:}
+\begin{center}
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{roboflow.png}
+		\vspace{0.5em}
+		
+		\textbf{Figure 3.3.1: Roboflow Image}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{yolo.png}
+		\vspace{0.5em}
+		
+		\textbf{Figure 3.3.2: YOLO Image}
+	\end{minipage}
+\end{center}
+
+To obtain the custom model for "head", and "helmet" detection we must first upload the datasets into Roboflow website in figure 3.1. Roboflow will allow users to specifically annotate desired classes, which after annotating said datasets, we can download directly from Roboflow the annotated datasets which we can train locally. Training can be done localy or through Google Collab. However due to limitations we used Vistual Studio as a medium to train the datasets from Roboflow. 
+
+\newpage
+	
+\noindent\textbf{Training Process:} As for our goals the training processes for our custom YOLOv8 model consisted of several key stages, summarized below:
+
 \begin{itemize}
-	 \item The model was trained on a dataset collected from University CCTV footage of two-hours at a spand of seven days during 8:00-10:00 am to monitor the motorbike riders's safey.
-	\item The video footage are then extracted by frame, for our project, we extrated them inside Roboflow into 3 frames-per-second.
-	\item After the clips has been extracted, we can use the bouding box to draw on the helmet and head, and lable them accordingly.
-	\item When the annoation is finish for the clips we move the annotated image into dataset, slilting them into Train, Validate, Test and download the data set into the device.
-	\item Using data.yaml file to adjust the training configuration., and put them inside VS code.
-	\item Data augmentation techniques such as flipping, contrast adjustments, and brightness changes were applied during training to improve generalization.
-	\item The configurations needed used inside data.yaml is located in the Hyperparameter section.
-	\item Hyperparameters, such as learning rate and non-maximum suppression (NMS) thresholds, were tuned for optimal performance.
-	\item After the training has been finish the wieghted model files will be created in runs/detect select the .pt files as a yolo model.
+	 \item \textbf{Data Collection:} The dataset was compiled from real CCTV footage recorded on campus at Mahidol University’s Faculty of Engineering. The footage was collected over a span of seven days during the morning rush hour (8:00–10:00 AM), totaling approximately two hours. This time window was chosen to capture peak motorcycle and pedestrian traffic for accurate helmet usage monitoring.  The image below is an example of a snapshot from the dataset, the actually dataset is a video as mention.
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Datasets.png}
+	
+	\vspace{0.5em}
+	\textbf{Figure 3.3.3: Dataset Image}
+\end{center}
+	 
+	\item \textbf{Frame extracgtion:} Using the cv2 module from OpenCV, video footage was processed and extracted into still frames. To ensure computational efficiency while retaining sufficient information, frames were sampled at a rate of 3 frames per second (FPS). The extracted images were then uploaded to Roboflow, a computer vision dataset platform, for annotation and augmentation. However for Roboflow they provide a function to slpit the frames within the website and we will be extracting them with Roboflow instead. In the figure below is an example of frame extraction function after uploading the datasets into Roboflow. Extracting the video datasets into frames, means that we can annotate each frames specifically we have three frames across one second. This is to also ensure that we do not have to much datasets, and it also depends on how much the desire classes appears on the videos. For our case there are enough objects across three frames per second to annotate.
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{Frameex.png}
+		
+		\vspace{0.5em}
+		\textbf{Figure 3.3.3: Frame Extraction Image}
+	\end{center}
+	
+	\item\textbf{Annotation:} Within Roboflow, bounding boxes were manually drawn around the target objects—specifically helmets and heads—to create accurate ground truth data for supervised learning. Annotations were carefully reviewed to ensure consistency, especially in challenging cases such as partial occlusions or non-standard helmet designs. The images belows show an example how we draw the bounding boxes for the classes. Drawing the bouding box this way minimizes detection errors and allows the YOLOv8 custom model to focus on the objects more precisely. We encourage to draw the bounding box as close to the objects as possible.
+		\begin{center}
+		\includegraphics[width=0.8\textwidth]{Anotate.png}
+		
+		\vspace{0.5em}
+		\textbf{Figure 3.3.4: Annotation Image}
+	\end{center}
+	\newpage
+	\item \textbf{Dataset Splitting:}  The annotated dataset was divided into training, validation, and testing sets with a ratio of 70\% training, 20\% validation, and 10]\% testing. This split was chosen to ensure sufficient training samples while preserving a robust validation set to monitor overfitting and a separate test set for unbiased evaluation. Using this data split is widely uses apporach in machine learning as it offers balnce between training, validation, and testing. 70\% of the data use to train allows it to learn patterns from the annotation effectively. It is effieicent and enough for pattern recognition. The 20\% is very important as becuase as this portion is used to check how well the model is learning. Additionally to help tune with the hyperparameters and prevent overfitting. Overfiting occurs when a  model memorizes the training data too well and fails to perform on new, unseen data.  Lastly the 10\% is reserved for testing, for unbaised evaluation of the model. The split ensures thatt the model has enough data to learn, and adjust. This process will occur after completing the annotation process.		
+		\begin{center}
+		\includegraphics[width=0.8\textwidth]{Split.png}
+		
+		\vspace{0.5em}
+		\textbf{Figure 3.3.5: Spliting Datasets Image}
+	\end{center}
+	At this step we can also augmentate our data through data augmentation from Roboflow seen in Figure 3.3.5. Data augmentation techniques applied are horizontal flipping, contrast enhancement, and brightness variation were applied to improve the model’s robustness to environmental variations such as lighting conditions or camera angles.
+			\begin{center}
+		\includegraphics[width=0.8\textwidth]{Augmentation.png}
+		
+		\vspace{0.5em}
+		\textbf{Figure 3.3.6: Augmentation Image}
+	\end{center}
+	
+	\item \textbf{Data Configuration and Training:} Aftering Spliting the data we can download the dataset files from Roboflow. The file will be splited to 70/20/10, train, validate, test. A data.yaml file will have to be  configured to specify class names, dataset paths, and other training parameters. The file is then imported imported into Visual Studio Code (VS Code) for model development and training using the Ultralytics YOLOv8 framework. The images below shows how data.yamlfile is set up.
+				\begin{center}
+		\includegraphics[width=0.8\textwidth]{Files.png}
+		
+		\vspace{0.5em}
+		\textbf{Figure 3.3.7:  Files from downloaded Dataset }
+	\end{center}
+	 The detailedconfigurations needed used inside data.yaml is located in the Hyperparameter section.
+	 Hyperparameters, such as learning rate and non-maximum suppression (NMS) thresholds, were tuned for optimal performance.  After applying the hyparameters, we can start the training through the data.yaml file. After the training has been finish, the wieghted model files will be created in runs/detect. Select the .pt files as a yolo model this will be the model that we will use after all the steps above are complete. For our project be have a total of 4,359 images that are annotated for custom model. The image belows shows the data.yaml content. We will use this to obtain a custom weighted  .pt file.
+	 				\begin{center}
+	 	\includegraphics[width=0.8\textwidth]{yaml.png}
+	 	
+	 	\vspace{0.5em}
+	 	\textbf{Figure 3.3.8:  Data.yaml file in VS}
+	 \end{center}
 \end{itemize}
 
 \section{\textbf{Counting System}}
@@ -100,7 +170,25 @@ Preprocessing: Includes resizing images to 640x640 pixels, normalizing pixel val
 
 
 \subsection{Output Generation}
-\noindent\hspace{2.5em}The output generation phase transforms the detection and counting results into a visual and interpretable format. For each processed video frame, the system overlays bounding boxes and labels indicating the object class (helmet, head, person, or motorcycle), along with live counts displayed on the top-left corner using OpenCV. These real-time visual indicators allow users to monitor helmet usage compliance at a glance. Additionally, the system can produce an annotated video file as output, which includes all detections and updated counts across the entire duration. This output is valuable for both immediate observation and later review or reporting, providing a clear and documented summary of safety compliance in the monitored area.
+\noindent\hspace{2.5em}The output generation phase transforms the detection and counting results into a visual and interpretable format. For each processed video frame, the system overlays bounding boxes and labels indicating the object class (helmet, head, person, or motorcycle), along with live counts displayed on the top-left corner using OpenCV. These real-time visual indicators allow users to monitor helmet usage compliance at a glance. Additionally, the system can produce an annotated video file as output, which includes all detections and updated counts across the entire duration. This output is valuable for both immediate observation and later review or reporting, providing a clear and documented summary of safety compliance in the monitored area. The images below shows the output of the system which after we run the program, will show live dection of the video input, and the save video file after the program completed the detection, we save it as a way to easier analyse and observe the detection through video playback, as analysing it live while running maybe not be as efficient.
+\begin{center}
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{out.png}
+		\vspace{0.7em}
+		
+		\textbf{Figure 3.4.1: Saved output Video}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{live.png}
+		\vspace{0.5em}
+		
+		\textbf{Figure 3.4.2: Live Output Generation}
+	\end{minipage}
+\end{center}
+
 
 \subsection{Storing Output in Google Sheet API}
 \noindent\hspace{2.5em}After the output has been generated, we store the detection into a log using Google API from the video steam. The Google API integration is used for logging and evidence storage for helmet violation cases. Firstly as mention the two model, YOLOv8 pre-trained model, and custom model for head/helmet detection. How the system is works is, when a head is detected within the zone. The frames will be stored, using cv2 to snap-shot the specific frame of head detection. We log the detections events to Google Sheet, it records, the timestamp, head detection, alert, and link to Google Drive file to the captured image.
@@ -127,15 +215,15 @@ Preprocessing: Includes resizing images to 640x640 pixels, normalizing pixel val
 \section{Hyperparameter Configurations}
 Key hyperparameters used during training included:
 
-Image size: 640 pixels
-Batch size: 32
-Epochs: 500
+epochs = 500
 
-depending on convergence and performance on the validation set.
+imgsz = 640 (image resolution)
 
-the epochs can be changed depending on the accuracy of the detection.
-Data  Augmentation : Flip , Change contrast, Rotate , Change brightnes
-(Can be changed later)
+batch = 32 (limited by available GPU memory)
+
+learning\_rate = 0.005
+
+While a larger batch size could have potentially accelerated training and stabilized gradient updates, our hardware limitations required a compromise at 32 images per batch.
 
 \section{Performace Evaluation}
 
