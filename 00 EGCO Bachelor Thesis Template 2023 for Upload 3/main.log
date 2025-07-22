@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.1)  22 JUL 2025 16:44
-=======
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.1)  22 JUL 2025 16:18
->>>>>>> Stashed changes
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.1)  22 JUL 2025 16:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -695,7 +691,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.67 <
+l.68 <
       <<<<<< Updated upstream
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -928,7 +924,32 @@ LaTeX Info: Redefining \ttfamily on input line 3.
  [6
 
 
-] [7])
+]
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 ...ine {chapter}{\numberline {4}RESULT}{27}{}
+                                                  %
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.50 ...ine {chapter}{\numberline {4}RESULT}{25}{}
+                                                  %
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[7])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
@@ -1096,44 +1117,44 @@ File: ano1.png Graphic file (type bmp)
 <ano1.png>
 File: ano2.png Graphic file (type bmp)
 <ano2.png>
-<<<<<<< Updated upstream
+File: ano1.png Graphic file (type bmp)
+<ano1.png>
+File: ano2.png Graphic file (type bmp)
+<ano2.png>
+ [24]
 File: performance.eva.png Graphic file (type bmp)
 <performance.eva.png>
- [24]
+ [25]
 File: performance.eva2.png Graphic file (type bmp)
 <performance.eva2.png>
- [25]
-Underfull \hbox (badness 1189) in paragraph at lines 269--270
+
+Underfull \hbox (badness 1189) in paragraph at lines 290--291
  \TU/TimesNewRoman(0)/m/n/12 Figure 3.8 shows the previous model performace eva
 luation, which is call
  []
 
-) (./chapter4.tex [26]
-=======
-)
-(./chapter4.tex [24]
->>>>>>> Stashed changes
+) (./chapter4.tex [26] [27]
 CHAPTER 4.
-[27
+[28
 
 ]
 File: model_result.png Graphic file (type bmp)
 <model_result.png>
 File: test1.png Graphic file (type bmp)
 <test1.png>
- [28]
+ [29]
 File: test2.png Graphic file (type bmp)
 <test2.png>
 File: test3.png Graphic file (type bmp)
 <test3.png>
- [29]
+ [30]
 File: test4.png Graphic file (type bmp)
 <test4.png>
- [30]) (./chapter5.tex [31]
+ [31]) (./chapter5.tex [32]
 CHAPTER 5.
-[32
+[33
 
-]) [33] (./main.bbl) [34
+]) [34] (./main.bbl) [35
 
 ]
 
@@ -1153,20 +1174,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< Updated upstream
  13671 strings out of 474773
  282802 string characters out of 5757724
  1938839 words of memory out of 5000000
  35534 multiletter control sequences out of 15000+600000
  564092 words of font info for 96 fonts, out of 8000000 for 9000
-=======
- 13649 strings out of 474773
- 282209 string characters out of 5757724
- 1938839 words of memory out of 5000000
- 35516 multiletter control sequences out of 15000+600000
- 564084 words of font info for 95 fonts, out of 8000000 for 9000
->>>>>>> Stashed changes
  1348 hyphenation exceptions out of 8191
  94i,13n,113p,1211b,523s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (49 pages).
+Output written on main.pdf (50 pages).
