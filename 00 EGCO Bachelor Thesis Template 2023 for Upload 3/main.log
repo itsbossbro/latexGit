@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.3)  22 JUL 2025 16:35
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.1)  22 JUL 2025 16:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -683,7 +683,20 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \l__lipsum_a_int=\count327
 \l__lipsum_b_int=\count328
 (/usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
-(./main.aux)
+(./main.aux
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.67 <
+      <<<<<< Updated upstream
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
@@ -814,9 +827,17 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 LaTeX Info: Redefining \rmfamily on input line 123.
 LaTeX Info: Redefining \sffamily on input line 123.
 LaTeX Info: Redefining \ttfamily on input line 123.
+LaTeX Font Info:    Font shape `TU/TimesNewRoman(1)/m/sl' in size <12> not avai
+lable
+(Font)              Font shape `TU/TimesNewRoman(1)/m/it' tried instead on inpu
+t line 125.
+[1
+
+]
 File: ./figures/MU_Logo-BW.png Graphic file (type bmp)
 <./figures/MU_Logo-BW.png>
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 125.
+
 
 LaTeX Font Warning: Font shape `TU/TimesNewRoman(1)/m/n' in size <14> not avail
 able
@@ -836,17 +857,16 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 12
 5.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-) [1
-
-
-] [2
-
+) [2
 
 ] [3
 
 
+] [4
+
+
 ]
-[4
+[5
 
 ] [1
 
@@ -904,11 +924,11 @@ LaTeX Info: Redefining \ttfamily on input line 3.
  [6
 
 
-])
+] [7])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [7] (./main.lot
+ [8] (./main.lot
 LaTeX Info: Redefining \rmfamily on input line 3.
 LaTeX Info: Redefining \sffamily on input line 3.
 LaTeX Info: Redefining \ttfamily on input line 3.
@@ -928,7 +948,7 @@ LaTeX Info: Redefining \ttfamily on input line 8.
 \tf@lot=\write5
 \openout5 = `main.lot'.
 
- [8
+ [9
 
 ] (./main.lof
 LaTeX Info: Redefining \rmfamily on input line 3.
@@ -950,7 +970,7 @@ LaTeX Info: Redefining \ttfamily on input line 7.
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [9
+ [10
 
 ] (./chapter1.tex
 CHAPTER 1.
@@ -1068,38 +1088,43 @@ File: live.png Graphic file (type bmp)
 File: api.png Graphic file (type bmp)
 <api.png>
  [23]
+File: ano1.png Graphic file (type bmp)
+<ano1.png>
+File: ano2.png Graphic file (type bmp)
+<ano2.png>
 File: performance.eva.png Graphic file (type bmp)
 <performance.eva.png>
+ [24]
 File: performance.eva2.png Graphic file (type bmp)
 <performance.eva2.png>
- [24]
-Underfull \hbox (badness 1189) in paragraph at lines 251--252
+ [25]
+Underfull \hbox (badness 1189) in paragraph at lines 269--270
  \TU/TimesNewRoman(0)/m/n/12 Figure 3.8 shows the previous model performace eva
 luation, which is call
  []
 
-) (./chapter4.tex [25]
+) (./chapter4.tex [26]
 CHAPTER 4.
-[26
+[27
 
 ]
 File: model_result.png Graphic file (type bmp)
 <model_result.png>
 File: test1.png Graphic file (type bmp)
 <test1.png>
- [27]
+ [28]
 File: test2.png Graphic file (type bmp)
 <test2.png>
 File: test3.png Graphic file (type bmp)
 <test3.png>
- [28]
+ [29]
 File: test4.png Graphic file (type bmp)
 <test4.png>
- [29]) (./chapter5.tex [30]
+ [30]) (./chapter5.tex [31]
 CHAPTER 5.
-[31
+[32
 
-]) [32] (./main.bbl) [33
+]) [33] (./main.bbl) [34
 
 ]
 
@@ -1114,14 +1139,17 @@ L3 programming layer <2024-02-20>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 7.0pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 13649 strings out of 474773
- 282416 string characters out of 5757724
+ 13671 strings out of 474773
+ 282802 string characters out of 5757724
  1938839 words of memory out of 5000000
- 35516 multiletter control sequences out of 15000+600000
- 564084 words of font info for 95 fonts, out of 8000000 for 9000
+ 35534 multiletter control sequences out of 15000+600000
+ 564092 words of font info for 96 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  94i,13n,113p,1211b,523s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (46 pages).
+Output written on main.pdf (49 pages).

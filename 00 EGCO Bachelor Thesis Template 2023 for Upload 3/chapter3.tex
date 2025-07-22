@@ -214,17 +214,35 @@ To obtain the custom model for "head", and "helmet" detection we must first uplo
 
 
 \section{Hyperparameter Configurations}
-Key hyperparameters used during training included:
+During the training process, serveral key herparameters were carefufully selected to balace the performce, the model accuracy and accordingly to our local computation resrouces.
 
-epochs = 500
+\textbf{Epochs} = 500, this is to ensure suffieicent exposeure to the training datasets. It will allow the model to learn patterns, and improve generalization overtime. However we can stop the early depending on our resources and depending on overfitting.
 
-imgsz = 640 (image resolution)
+\textbf{Image Size} imgsz = 640 (image resolution) 640x640 pixel is most commonly use parameter. This will also help decrease the traning time. However for smaller objects like head and helmet detection. Training them on 640x640 is enough, however in some circumstances when training very far, helmet and head that are annotated are risk to losing fine-grained details. This is important as it is very essential for detecting small overlapping objects. For our case we annotate them after they pass the bumper, we have checked that at this area before hand that when resolution was 640x640, it was not too grainy for traing. The image belows shows the annotated image that was resized to 640x640 for training. 
 
-batch = 32 (limited by available GPU memory)
+\begin{center}
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{ano1.png}
+		\vspace{0.7em}
+		
+		\textbf{Figure 3.4.1: Resized Image }
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{ano2.png}
+		\vspace{0.5em}
+		
+		\textbf{Figure 3.4.2: Resized Image }
+	\end{minipage}
+\end{center}
 
-learning\_rate = 0.005
+\textbf{Batch Size} =32, this is due to primarily contrained by the GPU, as larger batches can lead larger samples, and faster convergency. Nonetheless, batch size 32istill alowws for reasonable effieicnt traning and consistent model updates. This value can be changed depending on the GPU memory. While a larger batch size could have potentially accelerated training and stabilized gradient updates, our hardware limitations required a compromise at 32 images per batch.
 
-While a larger batch size could have potentially accelerated training and stabilized gradient updates, our hardware limitations required a compromise at 32 images per batch.
+\textbf{Learning Rate} = 0.005. Setting it to this value helps to cacilitate steady learning without causing instability. If it was too high, it could result in model to overshoot the optimal solution during traning. This value is also recommended by YOLOv8.
+
+
 
 \section{Performace Evaluation}
 
