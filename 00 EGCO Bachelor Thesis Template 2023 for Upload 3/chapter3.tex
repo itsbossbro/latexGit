@@ -2,6 +2,7 @@
 \section{System Design}
 
 	The purpose of the helmet detection system is to track helmet use from CCTV footage on a college campus. Data preparation, model training, and counting implementation are the three primary phases of the system. The first step involves converting campus CCTV video footage into image frames, which are subsequently labelled with helmet and unhelmeted head information using Roboflow. A customised YOLOv8 object detection model that is tuned for real-time performance is trained using the annotated dataset. After training, the model is incorporated into a real-time system that recognises and categorises heads and helmets by processing incoming video frames. In order to provide real-time statistics that facilitate safety compliance monitoring, a counting mechanism is integrated to monitor the quantity of helmets and heads seen within a designated area of interest.
+	
 
 \begin{figure}[H] % Optional: [H] requires \usepackage{float}
 	
@@ -231,3 +232,5 @@ The trained YOLOv8 model was evaluated using:
 mAP: To quantify detection accuracy.
 Confusion matrix: To identify true positives, false positives, and negatives.
 The purpose of the performance evaluation is to help our team, look at the development of the different models. The benefits of finding the best model is to use them for the best accuracy for the counting systems.
+
+lasjdl;asjflkasjlksjlksdjfklsf
