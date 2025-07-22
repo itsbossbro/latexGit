@@ -34,14 +34,14 @@
 \contentsline {section}{\numberline {3.5}Tools and Frameworks}{23}{}%
 \contentsline {section}{\numberline {3.6}Hyperparameter Configurations}{23}{}%
 \contentsline {section}{\numberline {3.7}Performace Evaluation}{23}{}%
-\contentsline {chapter}{\numberline {4}RESULT}{25}{}%
-\contentsline {section}{\numberline {4.1}Model Result}{26}{}%
-\contentsline {section}{\numberline {4.2}Counting Result}{27}{}%
-\contentsline {section}{\numberline {4.3}Discussions}{28}{}%
-\contentsline {subsection}{\numberline {4.3.1}Model Improvement}{28}{}%
-\contentsline {subsection}{\numberline {4.3.2}Helmet and Head Double Line Counting}{28}{}%
-\contentsline {subsection}{\numberline {4.3.3}Person and Motorbike BotSort Counting}{29}{}%
-\contentsline {chapter}{\numberline {5}Conclusion and Discussion}{30}{}%
-\contentsline {section}{\numberline {5.1}Obstacles}{30}{}%
-\contentsline {section}{\numberline {5.2}Future Work}{30}{}%
-\contentsline {chapter}{REFERENCES}{32}{}%
+\contentsline {chapter}{\numberline {4}RESULT}{26}{}%
+\contentsline {section}{\numberline {4.1}Model Result}{27}{}%
+\contentsline {section}{\numberline {4.2}Counting Result}{28}{}%
+\contentsline {section}{\numberline {4.3}Discussions}{29}{}%
+\contentsline {subsection}{\numberline {4.3.1}Model Improvement}{29}{}%
+\contentsline {subsection}{\numberline {4.3.2}Helmet and Head Double Line Counting}{29}{}%
+\contentsline {subsection}{\numberline {4.3.3}Person and Motorbike BotSort Counting}{30}{}%
+\contentsline {chapter}{\numberline {5}Conclusion and Discussion}{31}{}%
+\contentsline {section}{\numberline {5.1}Obstacles}{31}{}%
+\contentsline {section}{\numberline {5.2}Future Work}{31}{}%
+\contentsline {chapter}{REFERENCES}{33}{}%
