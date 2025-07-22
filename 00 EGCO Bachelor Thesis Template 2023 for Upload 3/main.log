@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.1)  22 JUL 2025 16:48
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.3)  22 JUL 2025 17:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -683,20 +683,7 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \l__lipsum_a_int=\count327
 \l__lipsum_b_int=\count328
 (/usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
-(./main.aux
-
-! LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.68 <
-      <<<<<< Updated upstream
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-)
+(./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
@@ -827,17 +814,9 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 LaTeX Info: Redefining \rmfamily on input line 123.
 LaTeX Info: Redefining \sffamily on input line 123.
 LaTeX Info: Redefining \ttfamily on input line 123.
-LaTeX Font Info:    Font shape `TU/TimesNewRoman(1)/m/sl' in size <12> not avai
-lable
-(Font)              Font shape `TU/TimesNewRoman(1)/m/it' tried instead on inpu
-t line 125.
-[1
-
-]
 File: ./figures/MU_Logo-BW.png Graphic file (type bmp)
 <./figures/MU_Logo-BW.png>
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 125.
-
 
 LaTeX Font Warning: Font shape `TU/TimesNewRoman(1)/m/n' in size <14> not avail
 able
@@ -857,16 +836,17 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 12
 5.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-) [2
+) [1
+
+
+] [2
+
 
 ] [3
 
 
-] [4
-
-
 ]
-[5
+[4
 
 ] [1
 
@@ -924,36 +904,11 @@ LaTeX Info: Redefining \ttfamily on input line 3.
  [6
 
 
-]
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.38 ...ine {chapter}{\numberline {4}RESULT}{27}{}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 ...ine {chapter}{\numberline {4}RESULT}{25}{}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[7])
+])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [8] (./main.lot
+ [7] (./main.lot
 LaTeX Info: Redefining \rmfamily on input line 3.
 LaTeX Info: Redefining \sffamily on input line 3.
 LaTeX Info: Redefining \ttfamily on input line 3.
@@ -973,7 +928,7 @@ LaTeX Info: Redefining \ttfamily on input line 8.
 \tf@lot=\write5
 \openout5 = `main.lot'.
 
- [9
+ [8
 
 ] (./main.lof
 LaTeX Info: Redefining \rmfamily on input line 3.
@@ -995,7 +950,7 @@ LaTeX Info: Redefining \ttfamily on input line 7.
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [10
+ [9
 
 ] (./chapter1.tex
 CHAPTER 1.
@@ -1169,17 +1124,14 @@ L3 programming layer <2024-02-20>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 7.0pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 13671 strings out of 474773
- 282802 string characters out of 5757724
+ 13667 strings out of 474773
+ 282656 string characters out of 5757724
  1938839 words of memory out of 5000000
- 35534 multiletter control sequences out of 15000+600000
- 564092 words of font info for 96 fonts, out of 8000000 for 9000
+ 35532 multiletter control sequences out of 15000+600000
+ 564084 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  94i,13n,113p,1211b,523s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (50 pages).
+Output written on main.pdf (48 pages).
