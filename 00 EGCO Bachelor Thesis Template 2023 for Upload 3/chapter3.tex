@@ -240,23 +240,7 @@ During the training process, serveral key herparameters were carefufully selecte
 \end{center}
 
 
-\begin{center}
-	\begin{minipage}{0.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{ano1.png}
-		\vspace{0.7em}
-		
-		\textbf{Figure 3.4.1: Resized Image }
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{ano2.png}
-		\vspace{0.5em}
-		
-		\textbf{Figure 3.4.2: Resized Image }
-	\end{minipage}
-\end{center}
+
 
 \textbf{Batch Size} =32, this is due to primarily contrained by the GPU, as larger batches can lead larger samples, and faster convergency. Nonetheless, batch size 32istill alowws for reasonable effieicnt traning and consistent model updates. This value can be changed depending on the GPU memory. While a larger batch size could have potentially accelerated training and stabilized gradient updates, our hardware limitations required a compromise at 32 images per batch.
 
