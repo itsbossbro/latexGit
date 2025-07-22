@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.1)  22 JUL 2025 16:44
+=======
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.1)  22 JUL 2025 16:18
+>>>>>>> Stashed changes
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1092,6 +1096,7 @@ File: ano1.png Graphic file (type bmp)
 <ano1.png>
 File: ano2.png Graphic file (type bmp)
 <ano2.png>
+<<<<<<< Updated upstream
 File: performance.eva.png Graphic file (type bmp)
 <performance.eva.png>
  [24]
@@ -1104,6 +1109,10 @@ luation, which is call
  []
 
 ) (./chapter4.tex [26]
+=======
+)
+(./chapter4.tex [24]
+>>>>>>> Stashed changes
 CHAPTER 4.
 [27
 
@@ -1144,11 +1153,19 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< Updated upstream
  13671 strings out of 474773
  282802 string characters out of 5757724
  1938839 words of memory out of 5000000
  35534 multiletter control sequences out of 15000+600000
  564092 words of font info for 96 fonts, out of 8000000 for 9000
+=======
+ 13649 strings out of 474773
+ 282209 string characters out of 5757724
+ 1938839 words of memory out of 5000000
+ 35516 multiletter control sequences out of 15000+600000
+ 564084 words of font info for 95 fonts, out of 8000000 for 9000
+>>>>>>> Stashed changes
  1348 hyphenation exceptions out of 8191
  94i,13n,113p,1211b,523s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
