@@ -15,7 +15,7 @@ The purpose of the helmet detection system is to track helmet use from CCTV foot
 	
 \end{figure}
 
-The flowchart in the figure 3.1 illustrates the overall workflow of the system. First, the dataset is obtained from the footages of a cctv camera of Mahidol university. The video footages are split into 3 frames per second using Roboflow. Then annotate each frames splited, the annoated items are helmet and head, then using data augmentations from Roboflow. Then we can downlaod the datasets. Finally, using dataset downloaded we can train locally through data.yaml, the data augmentations details are to be specified in Chapter 3. After the training the weights of the trained model are obtained in a .pt file, the file is the model that will be used in the system in conjunction with the pre-trained model from YOLOv8. The Implementation phase is to apply the custom trained model called best\_17, work with the video stream input. The bounding box and region of interest seen in figure 3.2.made from cv2. 
+The flowchart in the figure 3.1 illustrates the overall workflow of the system. First, the dataset is obtained from the footages of a cctv camera of Mahidol university. The video footages are split into 3 frames per second using Roboflow. Then annotate each frames splited, the annoated items are helmet and head, then using data augmentations from Roboflow. Then we can downlaod the datasets. Finally, using dataset downloaded we can train locally through data.yaml, the data augmentations details are to be specified in Chapter 3. After the training the weights of the trained model are obtained in a .pt file, the file is the model that will be used in the system in conjunction with the pre-trained model from YOLOv8. The Implementation phase is to apply the custom trained model called best\_17, work with the video stream input. The bounding box and region of interest seen in figure 3.2. made from cv2. 
 
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{ROI.png}
@@ -36,7 +36,6 @@ Annotations: Create two classes. first class containing the bouding box of helme
 \newline
 Preprocessing: Includes resizing images to 640x640 pixels, normalizing pixel values, and applying augmentations (e.g., rotation, scaling, and brightness adjustments).
 
-\newpage
 \section{Custom Model}
 \textbf{YOLOv8 Architecture:}
 YOLOv8 (You Only Look Once version 8), developed by Ultralytics, is known for its streamlined architecture and improved detection performance over its predecessors (e.g., YOLOv5, YOLOv7), particularly in low-light or occluded environments—conditions often encountered in real-world surveillance footage. The YOLOv8 architecture is used for this project due to its state-of-the-art performance in object detection, offering a balance between real-time inference speed and high accuracy. Specifically for this project, YOLOv8 is a tool that is important for training and differentiating helmet and head classes easily. Additionally YOLOv8 is easier to set up and supported by developers and communities in a larger scale than other YOLO versions.
@@ -74,7 +73,6 @@ To obtain the custom model for "head", and "helmet" detection we must first uplo
 		\vspace{0.5em}
 		\textbf{Figure 3.4: Annotation Image}
 	\end{center}
-	\newpage
 	\item \textbf{Dataset Splitting:}  The annotated dataset was divided into three subsets shown in figure 3.5: training, validation, and testing, following a common 70\%–20\%–10\% split. This allocation was selected to ensure a sufficient volume of data for effective model training, while also preserving dedicated sets for model evaluation and tuning. Specifically, 70\% of the data was used for training, providing the model with enough examples to learn relevant patterns and features from the annotated objects. The validation set, comprising 20\% of the data, played a critical role in monitoring the model's performance during training and guiding hyperparameter tuning to mitigate overfitting. Overfitting occurs when a model learns the training data too well, resulting in poor generalization to unseen data. The remaining 10\% of the data was reserved as a test set, which serves as an unbiased benchmark to evaluate the final model's performance. This partitioning strategy is widely adopted in machine learning workflows as it offers a balanced and effective framework for training, validating, and testing models. The dataset split was performed following the completion of the annotation process.
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{Split.png}

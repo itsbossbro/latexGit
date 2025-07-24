@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.3)  24 JUL 2025 19:48
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.3)  24 JUL 2025 19:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1035,93 +1035,92 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--38
 
  []
 
-[11] [12] [13]
+[11] [12]
 File: Datasets.png Graphic file (type bmp)
 <Datasets.png>
- [14]
+ [13]
 File: Frameex.png Graphic file (type bmp)
 <Frameex.png>
- [15]
+ [14]
 File: Anotate.png Graphic file (type bmp)
 <Anotate.png>
- [16]
 File: Split.png Graphic file (type bmp)
 <Split.png>
- [17]
+ [15] [16]
 File: Augmentation.png Graphic file (type bmp)
 <Augmentation.png>
- [18] [19]
+ [17]
 File: Files.png Graphic file (type bmp)
 <Files.png>
 File: yaml.png Graphic file (type bmp)
 <yaml.png>
- [20]
+ [18]
 File: headhel1.png Graphic file (type bmp)
 <headhel1.png>
- [21]
+ [19]
 File: headhel2.png Graphic file (type bmp)
 <headhel2.png>
- [22]
+ [20]
 File: headhel3.png Graphic file (type bmp)
 <headhel3.png>
- [23]
+ [21]
 File: fig1.png Graphic file (type bmp)
 <fig1.png>
- [24]
+ [22]
 File: out.png Graphic file (type bmp)
 <out.png>
 File: live.png Graphic file (type bmp)
 <live.png>
- [25]
+ [23]
 File: api.png Graphic file (type bmp)
 <api.png>
-
-[26]
+ [24]
 File: ano1.png Graphic file (type bmp)
 <ano1.png>
 File: ano2.png Graphic file (type bmp)
 <ano2.png>
- [27]
+ [25]
 File: performance.eva.png Graphic file (type bmp)
 <performance.eva.png>
- [28]
+
+[26]
 File: performance.eva2.png Graphic file (type bmp)
 <performance.eva2.png>
 
-Underfull \hbox (badness 1189) in paragraph at lines 299--300
+Underfull \hbox (badness 1189) in paragraph at lines 297--298
  \TU/TimesNewRoman(0)/m/n/12 Figure 3.8 shows the previous model performace eva
 luation, which is call
  []
 
-[29]) (./chapter4.tex [30]
+[27]) (./chapter4.tex [28]
 CHAPTER 4.
 File: table4.1.jpg Graphic file (type bmp)
 <table4.1.jpg>
-[31
+[29
 
 ]
 File: test1.png Graphic file (type bmp)
 <test1.png>
 File: test2.png Graphic file (type bmp)
 <test2.png>
- [32]
+ [30]
 File: test3.png Graphic file (type bmp)
 <test3.png>
- [33]
+ [31]
 File: test4.png Graphic file (type bmp)
 <test4.png>
 File: conclude_percent.png Graphic file (type bmp)
 <conclude_percent.png>
- [34]) (./chapter5.tex [35]
+ [32]) (./chapter5.tex [33]
 CHAPTER 5.
-[36
+[34
 
-] [37]
+] [35]
 File: limitation2.png Graphic file (type bmp)
 <limitation2.png>
 File: limitation3.png Graphic file (type bmp)
 <limitation3.png>
- [38] [39]) [40] (./main.bbl) [41
+ [36] [37]) [38] (./main.bbl) [39
 
 ]
 
@@ -1146,4 +1145,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  94i,13n,113p,2123b,523s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (57 pages).
+Output written on main.pdf (55 pages).

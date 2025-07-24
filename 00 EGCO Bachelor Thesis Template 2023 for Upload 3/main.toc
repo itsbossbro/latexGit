@@ -25,24 +25,24 @@
 \contentsline {chapter}{\numberline {3}METHODOLOGY}{9}{}%
 \contentsline {section}{\numberline {3.1}System Design}{9}{}%
 \contentsline {section}{\numberline {3.2}Data}{11}{}%
-\contentsline {section}{\numberline {3.3}Custom Model}{13}{}%
-\contentsline {section}{\numberline {3.4}\textbf {Counting System}}{21}{}%
-\contentsline {subsection}{\numberline {3.4.1}Helmet and Head}{21}{}%
-\contentsline {subsection}{\numberline {3.4.2}Person and Motorbike}{24}{}%
-\contentsline {subsection}{\numberline {3.4.3}Output Generation}{24}{}%
-\contentsline {subsection}{\numberline {3.4.4}Storing Output in Google Sheet API}{25}{}%
-\contentsline {section}{\numberline {3.5}Tools and Frameworks}{26}{}%
-\contentsline {section}{\numberline {3.6}Hyperparameter Configurations}{26}{}%
-\contentsline {section}{\numberline {3.7}Performace Evaluation}{27}{}%
-\contentsline {chapter}{\numberline {4}RESULT}{31}{}%
-\contentsline {section}{\numberline {4.1}Model Result}{31}{}%
-\contentsline {section}{\numberline {4.2}Counting Result}{32}{}%
-\contentsline {chapter}{\numberline {5}Conclusion and Discussion}{36}{}%
-\contentsline {section}{\numberline {5.1}Conclusion}{36}{}%
-\contentsline {section}{\numberline {5.2}Discussion}{37}{}%
-\contentsline {subsection}{\numberline {5.2.1}Model Improvement}{37}{}%
-\contentsline {subsection}{\numberline {5.2.2}Helmet and Head Double Line Counting}{38}{}%
-\contentsline {subsection}{\numberline {5.2.3}Person and Motorbike BotSort Counting}{38}{}%
-\contentsline {section}{\numberline {5.3}Limitation}{39}{}%
-\contentsline {section}{\numberline {5.4}Future Work}{40}{}%
-\contentsline {chapter}{REFERENCES}{41}{}%
+\contentsline {section}{\numberline {3.3}Custom Model}{12}{}%
+\contentsline {section}{\numberline {3.4}\textbf {Counting System}}{19}{}%
+\contentsline {subsection}{\numberline {3.4.1}Helmet and Head}{19}{}%
+\contentsline {subsection}{\numberline {3.4.2}Person and Motorbike}{22}{}%
+\contentsline {subsection}{\numberline {3.4.3}Output Generation}{22}{}%
+\contentsline {subsection}{\numberline {3.4.4}Storing Output in Google Sheet API}{23}{}%
+\contentsline {section}{\numberline {3.5}Tools and Frameworks}{24}{}%
+\contentsline {section}{\numberline {3.6}Hyperparameter Configurations}{24}{}%
+\contentsline {section}{\numberline {3.7}Performace Evaluation}{25}{}%
+\contentsline {chapter}{\numberline {4}RESULT}{29}{}%
+\contentsline {section}{\numberline {4.1}Model Result}{29}{}%
+\contentsline {section}{\numberline {4.2}Counting Result}{30}{}%
+\contentsline {chapter}{\numberline {5}Conclusion and Discussion}{34}{}%
+\contentsline {section}{\numberline {5.1}Conclusion}{34}{}%
+\contentsline {section}{\numberline {5.2}Discussion}{35}{}%
+\contentsline {subsection}{\numberline {5.2.1}Model Improvement}{35}{}%
+\contentsline {subsection}{\numberline {5.2.2}Helmet and Head Double Line Counting}{36}{}%
+\contentsline {subsection}{\numberline {5.2.3}Person and Motorbike BotSort Counting}{36}{}%
+\contentsline {section}{\numberline {5.3}Limitation}{37}{}%
+\contentsline {section}{\numberline {5.4}Future Work}{38}{}%
+\contentsline {chapter}{REFERENCES}{39}{}%
