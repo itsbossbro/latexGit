@@ -322,11 +322,11 @@ for the degree of Bachelor of Engineering (\thesisDepENG)\\
 on\\
 \thesisGradDate
 \vfill
-\noindent\@advSignbox{\Chair, \ChairDegree\\ Chair Committee}
+\noindent\@advSignbox{\Chair, \ChairDegree\\ Adivsor}
 \\[4\baselineskip]
-\noindent\@advSignbox{\committeeI, \committeeIDegree\\Committee}
+\noindent\@advSignbox{\committeeI, \committeeIDegree\\Co-Advisor}
 \\[4\baselineskip]
-\noindent\@advSignbox{\committeeII, \committeeIIDegree\\Comittee}
+\noindent\@advSignbox{\committeeII, \committeeIIDegree\\Co-Advisor}
 \end{center}
 \end{spacing}
 \clearpage
