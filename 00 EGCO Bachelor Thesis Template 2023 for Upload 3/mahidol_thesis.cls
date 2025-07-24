@@ -31,7 +31,7 @@
 \RequirePackage{float}
 \RequirePackage{pbox}       
 \RequirePackage[square,numbers]{natbib}         %Bibliography Style Configuration
- 
+
 \RequirePackage[Latin,Thai]{ucharclasses} % For automatic switching between languages
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -39,39 +39,39 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Note: THSarabun generates the errors due to it doesnot contain Thai and Latin script. Change font type supporting by polyglossia is the only way to solve this issue.
 \newfontfamily{\engfont}{Times New Roman}[
-     Script=Latin,
+Script=Latin,
 %     SizeFeatures = {Size=12},
-    %  Path=./Font/,
-    %  Extension = .ttf,
-    %  Scale = 1.33,            %Scale Default Font size (12pt) to 16pt (1.33)
-    %  UprightFont = *Regular,
-    %  ItalicFont = *Italic,
-    %  BoldFont = *Bold,
-    %  BoldItalicFont = *BoldItalic,
+%  Path=./Font/,
+%  Extension = .ttf,
+%  Scale = 1.33,            %Scale Default Font size (12pt) to 16pt (1.33)
+%  UprightFont = *Regular,
+%  ItalicFont = *Italic,
+%  BoldFont = *Bold,
+%  BoldItalicFont = *BoldItalic,
 ]
 \newfontfamily{\thaifont}{THSarabun}[
-    Script=Thai, 
-    Path=./Font/,
-    Extension = .ttf,
-    Scale = 1.33,            %Scale Default Font size (12pt) to 16pt (1.33)
-    UprightFont = *Regular,
-    ItalicFont = *Italic,
-    BoldFont = *Bold,
-    BoldItalicFont = *BoldItalic,
+Script=Thai, 
+Path=./Font/,
+Extension = .ttf,
+Scale = 1.33,            %Scale Default Font size (12pt) to 16pt (1.33)
+UprightFont = *Regular,
+ItalicFont = *Italic,
+BoldFont = *Bold,
+BoldItalicFont = *BoldItalic,
 ]
 \setmainfont{Times New Roman}
- [    %Default font 
-     Ligatures=TeX, 
-     Script=Latin, 
-     SizeFeatures = {Size=12},
-    %  Scale = 1.33,            %Scale Default Font size (12pt) to 16pt (1.33)
-    %  Path=./Font/,
-    %  Extension = .ttf,
-    %  UprightFont = *Regular,
-    %  ItalicFont = *Italic,
-    %  BoldFont = *Bold,
-    %  BoldItalicFont = *BoldItalic,
- ]
+[    %Default font 
+Ligatures=TeX, 
+Script=Latin, 
+SizeFeatures = {Size=12},
+%  Scale = 1.33,            %Scale Default Font size (12pt) to 16pt (1.33)
+%  Path=./Font/,
+%  Extension = .ttf,
+%  UprightFont = *Regular,
+%  ItalicFont = *Italic,
+%  BoldFont = *Bold,
+%  BoldItalicFont = *BoldItalic,
+]
 \setmainlanguage{english}                  %Option of polyglossia package (for using \thaiAlph)
 \setTransitionTo{Thai}{\thaifont}       %set to Thai font when found Thai characters 
 \setTransitionsForLatin{\engfont}{}     %set to English font when found Eng characters
@@ -80,24 +80,24 @@
 %Global Page, Body and Header Layout Setting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \geometry{
-    a4paper,
-    % twoside,               %use twoside if swapping left/right margin is required  
-%    showframe,             %show page geometry layout
-    left=3.75cm,
-    right=2.5cm, 
-    top=3.75cm,
-    bottom=2.5cm,
-    headheight = 0.51cm,
-    headsep = 2cm,
-    %nofoot,
-    nomarginpar
+	a4paper,
+	% twoside,               %use twoside if swapping left/right margin is required  
+	%    showframe,             %show page geometry layout
+	left=3.75cm,
+	right=2.5cm, 
+	top=3.75cm,
+	bottom=2.5cm,
+	headheight = 0.51cm,
+	headsep = 2cm,
+	%nofoot,
+	nomarginpar
 }
 \setlength{\parindent}{1.6cm}	        % Set indentation to 1cm 
 \renewcommand{\baselinestretch}{1.5}    % Set width between lines
 \setlist{               % set format of lists and items
-    leftmargin=1.2cm,           %list indentation
-    noitemsep,                  %no line space between items
-    nolistsep                   %no linie space between lists
+	leftmargin=1.2cm,           %list indentation
+	noitemsep,                  %no line space between items
+	nolistsep                   %no linie space between lists
 }    
 \XeTeXlinebreaklocale "th"              % Set text wrapping for Thai language 
 \XeTeXlinebreakskip = 0pt plus 0pt      % Set
@@ -106,32 +106,32 @@
 \renewcommand{\footrulewidth}{0pt}      % Remove footer horizontal line 
 %----------- Header Styles -------------------
 \fancypagestyle{plain}{         %  1st page of Chapter header style
-    \fancyhead[L,R]{}
-    \fancyfoot{}
+	\fancyhead[L,R]{}
+	\fancyfoot{}
 }
 
 \fancypagestyle{front}{         % Front Cover Header style (Incd. abstract, toc, lot, lof)
-    \fancyhead[L]{\@headerFont{\thesisDepENG, Mahidol University}}
-    \fancyhead[R]{\@headerFont{\thesisTitle~/ \thepage}}
-    \fancyfoot{}
+	\fancyhead[L]{\@headerFont{\thesisDepENG, Mahidol University}}
+	\fancyhead[R]{\@headerFont{\thesisTitle~/ \thepage}}
+	\fancyfoot{}
 }
 
 \fancypagestyle{chapter}{       % Chapter Header style
-    \fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{\@headerFont{\thesisDepENG, Mahidol University}}{}} %{odd}{even} page header
-    \fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{\@headerFont{B.Eng~(\thesisDepENG)~/~\thepage}}{\@headerFont{\leftmark~/~\thepage}}} %{odd}{even} page header
-    \fancyfoot{}
+	\fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{\@headerFont{\thesisDepENG, Mahidol University}}{}} %{odd}{even} page header
+	\fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{\@headerFont{B.Eng~(\thesisDepENG)~/~\thepage}}{\@headerFont{\leftmark~/~\thepage}}} %{odd}{even} page header
+	\fancyfoot{}
 }
 
 \fancypagestyle{bibliography}{       % Chapter Header style
-    \fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{\@headerFont{\thesisDepENG, Mahidol University}}{}} %{odd}{even} page header
-    \fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{\@headerFont{B.Eng~(\thesisDepENG)~/~\thepage}}{\@headerFont{REFERENCES~/~\thepage}}} %{odd}{even}page header
-    \fancyfoot{}
+	\fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{\@headerFont{\thesisDepENG, Mahidol University}}{}} %{odd}{even} page header
+	\fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{\@headerFont{B.Eng~(\thesisDepENG)~/~\thepage}}{\@headerFont{REFERENCES~/~\thepage}}} %{odd}{even}page header
+	\fancyfoot{}
 }
 
 \fancypagestyle{appendix}{       % Chapter Header style
-    \fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{\@headerFont{\thesisDepENG, Mahidol University}}{}} %{odd}{even} page header
-    \fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{\@headerFont{B.Eng~(\thesisDepENG)~/~\thepage}}{\@headerFont{APPENDIX~/~\thepage}}} %{odd}{even} page header
-    \fancyfoot{}
+	\fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{\@headerFont{\thesisDepENG, Mahidol University}}{}} %{odd}{even} page header
+	\fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{\@headerFont{B.Eng~(\thesisDepENG)~/~\thepage}}{\@headerFont{APPENDIX~/~\thepage}}} %{odd}{even} page header
+	\fancyfoot{}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,127 +139,127 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Thai Cover page
 % \newcommand{\coverpageTH}{
-% \backmatter
-% \thispagestyle{empty}
-% \begin{center}
-% \includegraphics[width=3cm]{./figures/MU_Logo-BW.png}\\
-% \vspace*{0.7cm}
-% %\@cpFont{
-% \textbf{\thesisTitleTH}\\
-% \vfill
-% \makeatletter% Start TeX commands
-% \begin{tabular}{l@{\hspace{20pt}}l}
-% \thesisFirstTitleNameTH\thesisFirstAuthorNameTH&\thesisFirstAuthorLastNameTH\\
-% \@ifundefined{thesisSecondAuthorNameTH}
-% {}			
-% {
-% \thesisSecondTitleNameTH\thesisSecondAuthorNameTH&\thesisSecondAuthorLastNameTH\\ 
-% \@ifundefined{thesisThirdAuthorNameTH}
-% {}
-% {
-% \thesisThirdTitleNameTH\thesisThirdAuthorNameTH&\thesisThirdAuthorLastNameTH\\
-% \@ifundefined{thesisFourthAuthorNameTH}
-% {}
-% {        			        \thesisFourthTitleNameTH\thesisFourthAuthorNameTH&\thesisFourthAuthorLastNameTH\\
-% }
-% }
-% }	
-% \end{tabular}
-% \makeatother % End TeX commands
-% \vfill
-% รายงานนี้เป็นส่วนหนึ่งของการศึกษาวิชาโครงงาน\thesisDepTH\\
-% ตามหลักสูตรวิศวกรรมศาสตร์บัณฑิต\\
-% สาขา\thesisDepTH\\
-% คณะวิศวกรรมศาสตร์ มหาวิทยาลัยมหิดล\\
-% ปีการศึกษา~\thesisAcademicYearTH
-% \end{center}
-% %}   % End of cpFont command (Font for Cover Page)
-% \clearpage
-% }
+	% \backmatter
+	% \thispagestyle{empty}
+	% \begin{center}
+		% \includegraphics[width=3cm]{./figures/MU_Logo-BW.png}\\
+		% \vspace*{0.7cm}
+		% %\@cpFont{
+			% \textbf{\thesisTitleTH}\\
+			% \vfill
+			% \makeatletter% Start TeX commands
+			% \begin{tabular}{l@{\hspace{20pt}}l}
+				% \thesisFirstTitleNameTH\thesisFirstAuthorNameTH&\thesisFirstAuthorLastNameTH\\
+				% \@ifundefined{thesisSecondAuthorNameTH}
+				% {}			
+				% {
+					% \thesisSecondTitleNameTH\thesisSecondAuthorNameTH&\thesisSecondAuthorLastNameTH\\ 
+					% \@ifundefined{thesisThirdAuthorNameTH}
+					% {}
+					% {
+						% \thesisThirdTitleNameTH\thesisThirdAuthorNameTH&\thesisThirdAuthorLastNameTH\\
+						% \@ifundefined{thesisFourthAuthorNameTH}
+						% {}
+						% {        			        \thesisFourthTitleNameTH\thesisFourthAuthorNameTH&\thesisFourthAuthorLastNameTH\\
+							% }
+						% }
+					% }	
+				% \end{tabular}
+			% \makeatother % End TeX commands
+			% \vfill
+			% รายงานนี้เป็นส่วนหนึ่งของการศึกษาวิชาโครงงาน\thesisDepTH\\
+			% ตามหลักสูตรวิศวกรรมศาสตร์บัณฑิต\\
+			% สาขา\thesisDepTH\\
+			% คณะวิศวกรรมศาสตร์ มหาวิทยาลัยมหิดล\\
+			% ปีการศึกษา~\thesisAcademicYearTH
+			% \end{center}
+		% %}   % End of cpFont command (Font for Cover Page)
+	% \clearpage
+	% }
 
 % English Cover page
 \newcommand{\coverpageENG}{
-\backmatter
-\thispagestyle{empty}
-\begin{spacing}{1.15}
-\begin{center}
-\includegraphics[width=3cm]{./figures/MU_Logo-BW.png}\\
-\vspace*{0.7cm}
-\@cpFont{
-\MakeUppercase{\thesisTitle}\\
-\vfill
-\makeatletter% Start TeX commands
-\begin{tabular}{l@{\hspace{20pt}}l}
-\MakeUppercase{\thesisFirstTitleName\thesisFirstAuthorName}&\MakeUppercase{\thesisFirstAuthorLastName}\\
-\@ifundefined{thesisSecondAuthorName}
-{}			
-{
-\MakeUppercase{\thesisSecondTitleName\thesisSecondAuthorName}& \MakeUppercase{\thesisSecondAuthorLastName}\\ 
-\@ifundefined{thesisThirdAuthorName}
-{}
-{
-\MakeUppercase{\thesisThirdTitleName\thesisThirdAuthorName}& \MakeUppercase{\thesisThirdAuthorLastName}\\
-\@ifundefined{thesisFourthAuthorName}
-{}
-{\MakeUppercase{\thesisFourthTitleName\thesisFourthAuthorName}&\MakeUppercase{\thesisFourthAuthorLastName}\\
-}
-}
-}
-\end{tabular}
-\makeatother % End TeX commands
-\vfill
-A PROJECT REPORT SUBMITTED IN PARTIAL \\
-FULFILLMENT OF THE REQUIREMENT FOR THE DEGREE\\
-BACHELOR OF ENGINEERING IN \MakeUppercase{\thesisDepENG}\\[\baselineskip]
-FACULTY OF ENGINEERING \& INTERNATIONAL COLLEGE\\
-MAHIDOL UNIVERSITY\\
-\thesisAcademicYear\\[\baselineskip]
-} %End cpFont
-\end{center}
-\end{spacing}
-\clearpage
+	\backmatter
+	\thispagestyle{empty}
+	\begin{spacing}{1.15}
+		\begin{center}
+			\includegraphics[width=3cm]{./figures/MU_Logo-BW.png}\\
+			\vspace*{0.7cm}
+			\@cpFont{
+				\MakeUppercase{\thesisTitle}\\
+				\vfill
+				\makeatletter% Start TeX commands
+				\begin{tabular}{l@{\hspace{20pt}}l}
+					\MakeUppercase{\thesisFirstTitleName\thesisFirstAuthorName}&\MakeUppercase{\thesisFirstAuthorLastName}\\
+					\@ifundefined{thesisSecondAuthorName}
+					{}			
+					{
+						\MakeUppercase{\thesisSecondTitleName\thesisSecondAuthorName}& \MakeUppercase{\thesisSecondAuthorLastName}\\ 
+						\@ifundefined{thesisThirdAuthorName}
+						{}
+						{
+							\MakeUppercase{\thesisThirdTitleName\thesisThirdAuthorName}& \MakeUppercase{\thesisThirdAuthorLastName}\\
+							\@ifundefined{thesisFourthAuthorName}
+							{}
+							{\MakeUppercase{\thesisFourthTitleName\thesisFourthAuthorName}&\MakeUppercase{\thesisFourthAuthorLastName}\\
+							}
+						}
+					}
+				\end{tabular}
+				\makeatother % End TeX commands
+				\vfill
+				A PROJECT REPORT SUBMITTED IN PARTIAL \\
+				FULFILLMENT OF THE REQUIREMENT FOR THE DEGREE\\
+				BACHELOR OF ENGINEERING IN \MakeUppercase{\thesisDepENG}\\[\baselineskip]
+				FACULTY OF ENGINEERING \& INTERNATIONAL COLLEGE\\
+				MAHIDOL UNIVERSITY\\
+				\thesisAcademicYear\\[\baselineskip]
+			} %End cpFont
+		\end{center}
+	\end{spacing}
+	\clearpage
 }
 
 %Second English Cover page
 \newcommand{\coverpageENGTwo}{
-\backmatter
-\thispagestyle{empty}
-\begin{spacing}{1.15}
-\begin{center}
-\@cpNormalFont{
-~\\[2\baselineskip]
-\MakeUppercase{\thesisTitle}\\
-\vfill
-\makeatletter% Start TeX commands
-\begin{tabular}{l@{\hspace{20pt}}l}
-\MakeUppercase{\thesisFirstTitleName\thesisFirstAuthorName}&\MakeUppercase{\thesisFirstAuthorLastName}\\
-\@ifundefined{thesisSecondAuthorName}
-{}			
-{
-\MakeUppercase{\thesisSecondTitleName\thesisSecondAuthorName}& \MakeUppercase{\thesisSecondAuthorLastName}\\ 
-\@ifundefined{thesisThirdAuthorName}
-{}
-{
-\MakeUppercase{\thesisThirdTitleName\thesisThirdAuthorName}& \MakeUppercase{\thesisThirdAuthorLastName}\\
-\@ifundefined{thesisFourthAuthorName}
-{}
-{\MakeUppercase{\thesisFourthTitleName\thesisFourthAuthorName}&\MakeUppercase{\thesisFourthAuthorLastName}\\
-}
-}
-}
-\end{tabular}
-\makeatother % End TeX commands
-\vfill
-A PROJECT REPORT SUBMITTED IN PARTIAL \\
-FULFILLMENT OF THE REQUIREMENT FOR THE DEGREE\\
-BACHELOR OF ENGINEERING IN \MakeUppercase{\thesisDepENG}\\[\baselineskip]
-FACULTY OF ENGINEERING \& INTERNATIONAL COLLEGE\\
-MAHIDOL UNIVERSITY\\
-\thesisAcademicYear\\[\baselineskip]
-} %End cpNormalFont
-\end{center}
-\end{spacing}
-\clearpage
+	\backmatter
+	\thispagestyle{empty}
+	\begin{spacing}{1.15}
+		\begin{center}
+			\@cpNormalFont{
+				~\\[2\baselineskip]
+				\MakeUppercase{\thesisTitle}\\
+				\vfill
+				\makeatletter% Start TeX commands
+				\begin{tabular}{l@{\hspace{20pt}}l}
+					\MakeUppercase{\thesisFirstTitleName\thesisFirstAuthorName}&\MakeUppercase{\thesisFirstAuthorLastName}\\
+					\@ifundefined{thesisSecondAuthorName}
+					{}			
+					{
+						\MakeUppercase{\thesisSecondTitleName\thesisSecondAuthorName}& \MakeUppercase{\thesisSecondAuthorLastName}\\ 
+						\@ifundefined{thesisThirdAuthorName}
+						{}
+						{
+							\MakeUppercase{\thesisThirdTitleName\thesisThirdAuthorName}& \MakeUppercase{\thesisThirdAuthorLastName}\\
+							\@ifundefined{thesisFourthAuthorName}
+							{}
+							{\MakeUppercase{\thesisFourthTitleName\thesisFourthAuthorName}&\MakeUppercase{\thesisFourthAuthorLastName}\\
+							}
+						}
+					}
+				\end{tabular}
+				\makeatother % End TeX commands
+				\vfill
+				A PROJECT REPORT SUBMITTED IN PARTIAL \\
+				FULFILLMENT OF THE REQUIREMENT FOR THE DEGREE\\
+				BACHELOR OF ENGINEERING IN \MakeUppercase{\thesisDepENG}\\[\baselineskip]
+				FACULTY OF ENGINEERING \& INTERNATIONAL COLLEGE\\
+				MAHIDOL UNIVERSITY\\
+				\thesisAcademicYear\\[\baselineskip]
+			} %End cpNormalFont
+		\end{center}
+	\end{spacing}
+	\clearpage
 }
 
 
@@ -267,140 +267,140 @@ MAHIDOL UNIVERSITY\\
 %Entitled page layout I 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\entitlepageOne}{
-\backmatter
-\thispagestyle{empty}
-\begin{spacing}{1.15}
-\begin{center}
-Computer Engineering Project\\
-entitled\\
-\@cpFont{\MakeUppercase{\thesisTitle}}
-\vfill
-
-
-\begin{tabbing} 
-\@signbox{\thesisFirstTitleName\thesisFirstAuthorName~\thesisFirstAuthorLastName\\Researcher}
-
-\@ifundefined{thesisSecondAuthorName}
-{\\[3\baselineskip]}
-{\hspace{0.16\textwidth}\=\@signbox{\thesisSecondTitleName\thesisSecondAuthorName~\thesisSecondAuthorLastName\\Researcher}
-
-\@ifundefined{thesisThirdAuthorName}
-{\\[3\baselineskip]}
-{\\[3\baselineskip]
-\@signbox{\thesisThirdTitleName\thesisThirdAuthorName~\thesisThirdAuthorLastName\\Researcher}
-
-\@ifundefined{thesisFourthAuthorName}
-{\\[3\baselineskip]}
-{
-\hspace{0.16\textwidth}\@signbox{\thesisFourthTitleName\thesisFourthAuthorName~\thesisFourthAuthorLastName\\Researcher}
-\\[3\baselineskip]
-}
-}
-}
-\@advSignbox{\thesisAdv, \advDegree\\Advisor}
-\end{tabbing}
-%\vfill
-\end{center}
-\end{spacing}
-\clearpage
+	\backmatter
+	\thispagestyle{empty}
+	\begin{spacing}{1.15}
+		\begin{center}
+			Computer Engineering Project\\
+			entitled\\
+			\@cpFont{\MakeUppercase{\thesisTitle}}
+			\vfill
+			
+			
+			\begin{tabbing} 
+				\@signbox{\thesisFirstTitleName\thesisFirstAuthorName~\thesisFirstAuthorLastName\\Researcher}
+				
+				\@ifundefined{thesisSecondAuthorName}
+				{\\[3\baselineskip]}
+				{\hspace{0.16\textwidth}\=\@signbox{\thesisSecondTitleName\thesisSecondAuthorName~\thesisSecondAuthorLastName\\Researcher}
+					
+					\@ifundefined{thesisThirdAuthorName}
+					{\\[3\baselineskip]}
+					{\\[3\baselineskip]
+						\@signbox{\thesisThirdTitleName\thesisThirdAuthorName~\thesisThirdAuthorLastName\\Researcher}
+						
+						\@ifundefined{thesisFourthAuthorName}
+						{\\[3\baselineskip]}
+						{
+							\hspace{0.16\textwidth}\@signbox{\thesisFourthTitleName\thesisFourthAuthorName~\thesisFourthAuthorLastName\\Researcher}
+							\\[3\baselineskip]
+						}
+					}
+				}
+				\@advSignbox{\thesisAdv, \advDegree\\Advisor}
+			\end{tabbing}
+			%\vfill
+		\end{center}
+	\end{spacing}
+	\clearpage
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Entitled page layout II
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\entitlepageTwo}{
-\thispagestyle{empty}
-\begin{spacing}{1.15}
-\begin{center}
-Thesis\\
-entitled\\
-\@cpFont{\MakeUppercase{\thesisTitle}}
-\\[\baselineskip]
-was submitted to the Faculty of Engineering \& International College,\\
-Mahidiol University\\
-for the degree of Bachelor of Engineering (\thesisDepENG)\\
-on\\
-\thesisGradDate
-\vfill
-\noindent\@advSignbox{\Chair, \ChairDegree\\ Chair Committee}
-\\[4\baselineskip]
-\noindent\@advSignbox{\committeeI, \committeeIDegree\\Committee}
-\\[4\baselineskip]
-\noindent\@advSignbox{\committeeII, \committeeIIDegree\\Comittee}
-\end{center}
-\end{spacing}
-\clearpage
+	\thispagestyle{empty}
+	\begin{spacing}{1.15}
+		\begin{center}
+			Thesis\\
+			entitled\\
+			\@cpFont{\MakeUppercase{\thesisTitle}}
+			\\[\baselineskip]
+			was submitted to the Faculty of Engineering \& International College,\\
+			Mahidiol University\\
+			for the degree of Bachelor of Engineering (\thesisDepENG)\\
+			on\\
+			\thesisGradDate
+			\vfill
+			\noindent\@advSignbox{\Chair, \ChairDegree\\ Adivsor}
+			\\[4\baselineskip]
+			\noindent\@advSignbox{\committeeI, \committeeIDegree\\Co-Advisor}
+			\\[4\baselineskip]
+			\noindent\@advSignbox{\committeeII, \committeeIIDegree\\Co-Advisor}
+		\end{center}
+	\end{spacing}
+	\clearpage
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Biography page layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\biography}{        %Create Biography Page
-\setcounter{page}{1}
-\addcontentsline{toc}{chapter}{BIOGRAPHY}
-\@biolayout{First}{Second}   
-\@ifundefined{thesisThirdAuthorNameTH}
-    {}
-    {\@biolayout{Third}{Fourth}}
+	\setcounter{page}{1}
+	\addcontentsline{toc}{chapter}{BIOGRAPHY}
+	\@biolayout{First}{Second}   
+	\@ifundefined{thesisThirdAuthorNameTH}
+	{}
+	{\@biolayout{Third}{Fourth}}
 }
 
 
 \newcommand{\@biolayout}[2]{    %Create List of Authors in Biography Page
-\thispagestyle{front}   %biography header style
-\begin{center}
-\@cpFont{\textbf{\MakeUppercase{Biography}}}
-\\[2\baselineskip]
-\begin{tabbing}
-NAME{\hspace{130pt}}\=\tabfill{\csname thesis#1TitleName\endcsname\csname thesis#1AuthorName\endcsname~\csname thesis#1AuthorLastName\endcsname}\\
-DATE OF BIRTH \> \csname thesis#1AuthorBD\endcsname \\
-BIRTHPLACE \> \csname thesis#1AuthorBP\endcsname\\
-EDUCATION BACKGROUND \> \tabfill{\csname thesis#1AuthorHC\endcsname}\\
-%            \> \tabfill{ปริญญาตรี ภาควิชา\thesisDepTH~คณะวิศวกรรมศาสตร์  มหาวิทยาลัยมหิดล}\\
-MOBILE PHONE  \> \csname thesis#1AuthorTel\endcsname\\
-E-MAIL \> \csname thesis#1AuthorEmail\endcsname
-\@ifundefined{thesis#2AuthorNameTH}
-{}
-{
-\\[3\baselineskip]
-NAME{\hspace{130pt}}\=\tabfill{\csname thesis#2TitleName\endcsname\csname thesis#2AuthorName\endcsname~\csname thesis#2AuthorLastName\endcsname}\\
-DATE OF BIRTH \> \csname thesis#2AuthorBD\endcsname \\
-BIRTHPLACE \> \csname thesis#2AuthorBP\endcsname\\
-EDUCATION BACKGROUND \> \tabfill{\csname thesis#2AuthorHC\endcsname}\\
-%            \> \tabfill{ปริญญาตรี ภาควิชา\thesisDepTH~คณะวิศวกรรมศาสตร์  มหาวิทยาลัยมหิดล}\\
-MOBILE PHONE  \> \csname thesis#2AuthorTel\endcsname\\
-E-MAIL \> \csname thesis#2AuthorEmail\endcsname
-}
-\end{tabbing}
-\end{center}
-\clearpage
+	\thispagestyle{front}   %biography header style
+	\begin{center}
+		\@cpFont{\textbf{\MakeUppercase{Biography}}}
+		\\[2\baselineskip]
+		\begin{tabbing}
+			NAME{\hspace{130pt}}\=\tabfill{\csname thesis#1TitleName\endcsname\csname thesis#1AuthorName\endcsname~\csname thesis#1AuthorLastName\endcsname}\\
+			DATE OF BIRTH \> \csname thesis#1AuthorBD\endcsname \\
+			BIRTHPLACE \> \csname thesis#1AuthorBP\endcsname\\
+			EDUCATION BACKGROUND \> \tabfill{\csname thesis#1AuthorHC\endcsname}\\
+			%            \> \tabfill{ปริญญาตรี ภาควิชา\thesisDepTH~คณะวิศวกรรมศาสตร์  มหาวิทยาลัยมหิดล}\\
+			MOBILE PHONE  \> \csname thesis#1AuthorTel\endcsname\\
+			E-MAIL \> \csname thesis#1AuthorEmail\endcsname
+			\@ifundefined{thesis#2AuthorNameTH}
+			{}
+			{
+				\\[3\baselineskip]
+				NAME{\hspace{130pt}}\=\tabfill{\csname thesis#2TitleName\endcsname\csname thesis#2AuthorName\endcsname~\csname thesis#2AuthorLastName\endcsname}\\
+				DATE OF BIRTH \> \csname thesis#2AuthorBD\endcsname \\
+				BIRTHPLACE \> \csname thesis#2AuthorBP\endcsname\\
+				EDUCATION BACKGROUND \> \tabfill{\csname thesis#2AuthorHC\endcsname}\\
+				%            \> \tabfill{ปริญญาตรี ภาควิชา\thesisDepTH~คณะวิศวกรรมศาสตร์  มหาวิทยาลัยมหิดล}\\
+				MOBILE PHONE  \> \csname thesis#2AuthorTel\endcsname\\
+				E-MAIL \> \csname thesis#2AuthorEmail\endcsname
+			}
+		\end{tabbing}
+	\end{center}
+	\clearpage
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Acknowledgement Layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\acknowledgement}[1]{
-\thispagestyle{front}       %acknowledgement header style
-\addcontentsline{toc}{chapter}{ACKNOWLEDGEMENT}
-\sloppy     %increase space between Thai words
-\begin{center}
-\@cpFont{\textbf{ACKNOWLEDGEMENT}
-\\[1\baselineskip]    
-}
-\end{center}\par
-\input{#1}\\\\\par
-\hfill\pbox{\textwidth}{
-    \thesisFirstTitleName\thesisFirstAuthorName\hspace{15pt}\thesisFirstAuthorLastName\\
-    \@ifundefined{thesisSecondAuthorName}
-    {}
-    {\thesisSecondTitleName\thesisSecondAuthorName\hspace{15pt}\thesisSecondAuthorLastName\\}
-    \@ifundefined{thesisThirdAuthorName}
-    {}
-    {\thesisThirdTitleName\thesisThirdAuthorName\hspace{15pt}\thesisThirdAuthorLastName\\}
-    \@ifundefined{thesisFourthAuthorName}
-    {}
-    {\thesisFourthTitleName\thesisFourthAuthorName\hspace{15pt}\thesisFourthAuthorLastName}
-}
-\clearpage
+	\thispagestyle{front}       %acknowledgement header style
+	\addcontentsline{toc}{chapter}{ACKNOWLEDGEMENT}
+	\sloppy     %increase space between Thai words
+	\begin{center}
+		\@cpFont{\textbf{ACKNOWLEDGEMENT}
+			\\[1\baselineskip]    
+		}
+	\end{center}\par
+	\input{#1}\\\\\par
+	\hfill\pbox{\textwidth}{
+		\thesisFirstTitleName\thesisFirstAuthorName\hspace{15pt}\thesisFirstAuthorLastName\\
+		\@ifundefined{thesisSecondAuthorName}
+		{}
+		{\thesisSecondTitleName\thesisSecondAuthorName\hspace{15pt}\thesisSecondAuthorLastName\\}
+		\@ifundefined{thesisThirdAuthorName}
+		{}
+		{\thesisThirdTitleName\thesisThirdAuthorName\hspace{15pt}\thesisThirdAuthorLastName\\}
+		\@ifundefined{thesisFourthAuthorName}
+		{}
+		{\thesisFourthTitleName\thesisFourthAuthorName\hspace{15pt}\thesisFourthAuthorLastName}
+	}
+	\clearpage
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -410,75 +410,75 @@ E-MAIL \> \csname thesis#2AuthorEmail\endcsname
 %Thai Abstract
 \newenvironment{abstractTHLayout}
 {
-\renewcommand{\baselinestretch}{1.5}    % Set width between lines
-    \addcontentsline{toc}{chapter}{ABSTRACT (THAI)}
-    \sloppy     %increase space between Thai words
-    \fancyput(0.9cm,-25cm){           %   Set Page Frame (x,y) dimension 
-        \setlength{\unitlength}{1cm}%
-    	\framebox(15.15,23.85){}%
-    } 
-    \begin{tabbing}
-        ชื่อโครงงาน \hspace{2.8cm}\=\thesisTitleTH\\
-        ผู้วิจัย \> \thesisFirstTitleNameTH\thesisFirstAuthorNameTH\hspace{15pt}\thesisFirstAuthorLastNameTH\hfill~~ICCI\+ \\
-            \@ifundefined{thesisSecondAuthorNameTH}{}{\thesisSecondTitleNameTH\thesisSecondAuthorNameTH\hspace{15pt}\thesisSecondAuthorLastNameTH~~ICCI\\} 
-            \@ifundefined{thesisThirdAuthorNameTH}{}{\thesisThirdTitleNameTH\thesisThirdAuthorNameTH\hspace{15pt}\thesisThirdAuthorLastNameTH~~ICCI\\} 
-            \@ifundefined{thesisFourthAuthorNameTH}{}{\thesisFourthTitleNameTH\thesisFourthAuthorNameTH\hspace{15pt}\thesisFourthAuthorLastNameTH~~ICCI\\} 
-        ปริญญา \- วิศวกรรมศาสตรบัณฑิต สาขาวิชา\thesisDepTH\\
-        อาจารย์ที่ปรึกษา \> \thesisAdvTH\\
-        สำเร็จการศึกษา \> \thesisGradDateTH
-    \end{tabbing}
-    \begin{center} 
-    \@cpFont{\textbf{บทคัดย่อ}}
-    \end{center}\par
+	\renewcommand{\baselinestretch}{1.5}    % Set width between lines
+	\addcontentsline{toc}{chapter}{ABSTRACT (THAI)}
+	\sloppy     %increase space between Thai words
+	\fancyput(0.9cm,-25cm){           %   Set Page Frame (x,y) dimension 
+		\setlength{\unitlength}{1cm}%
+		\framebox(15.15,23.85){}%
+	} 
+	\begin{tabbing}
+		ชื่อโครงงาน \hspace{2.8cm}\=\thesisTitleTH\\
+		ผู้วิจัย \> \thesisFirstTitleNameTH\thesisFirstAuthorNameTH\hspace{15pt}\thesisFirstAuthorLastNameTH\hfill~~ICCI\+ \\
+		\@ifundefined{thesisSecondAuthorNameTH}{}{\thesisSecondTitleNameTH\thesisSecondAuthorNameTH\hspace{15pt}\thesisSecondAuthorLastNameTH~~ICCI\\} 
+		\@ifundefined{thesisThirdAuthorNameTH}{}{\thesisThirdTitleNameTH\thesisThirdAuthorNameTH\hspace{15pt}\thesisThirdAuthorLastNameTH~~ICCI\\} 
+		\@ifundefined{thesisFourthAuthorNameTH}{}{\thesisFourthTitleNameTH\thesisFourthAuthorNameTH\hspace{15pt}\thesisFourthAuthorLastNameTH~~ICCI\\} 
+		ปริญญา \- วิศวกรรมศาสตรบัณฑิต สาขาวิชา\thesisDepTH\\
+		อาจารย์ที่ปรึกษา \> \thesisAdvTH\\
+		สำเร็จการศึกษา \> \thesisGradDateTH
+	\end{tabbing}
+	\begin{center} 
+		\@cpFont{\textbf{บทคัดย่อ}}
+	\end{center}\par
 }
 {
-    \\[1\baselineskip]
-    \textbf{คำสำคัญ} :\thesisKeywordsTH
-    \\[1\baselineskip]
-    %\char\numexpr\getpagerefnumber{LastPage}+"E50  => This expression converting LastPage to an Integer but not working on 2 or more digits number. TODO: find the way to extract each digit and pass to the Arabic => Thai numeral converter 
-    \pageref{lastpage}~หน้า
-    \clearpage     
+	\\[1\baselineskip]
+	\textbf{คำสำคัญ} :\thesisKeywordsTH
+	\\[1\baselineskip]
+	%\char\numexpr\getpagerefnumber{LastPage}+"E50  => This expression converting LastPage to an Integer but not working on 2 or more digits number. TODO: find the way to extract each digit and pass to the Arabic => Thai numeral converter 
+	\pageref{lastpage}~หน้า
+	\clearpage     
 }
 
 \newcommand{\abstractTH}[1]{
-    \begin{abstractTHLayout}
-        \input{#1}
-    \end{abstractTHLayout}
+	\begin{abstractTHLayout}
+		\input{#1}
+	\end{abstractTHLayout}
 }
 %====================================
 %English Abstract
 \newenvironment{abstractENGLayout}
 {
-    \addcontentsline{toc}{chapter}{ABSTRACT (ENGLISH)}
-    \fancyput(0.9cm,-25cm){           %   Set Page Frame (x,y) dimension 
-        \setlength{\unitlength}{1cm}%
-	    \framebox(15.15,23.85){}%
-    }
-    \begin{tabbing}
-        \centerline{\@cpFont{\MakeUppercase{\thesisTitle}}}\\[2\baselineskip]
-        STUDENTS \hspace{2.8cm}\=\thesisFirstTitleName~\thesisFirstAuthorName\hspace{15pt}\thesisFirstAuthorLastName~~ICCI\\
-            \@ifundefined{thesisSecondAuthorName}{}{\>\thesisSecondTitleName~\thesisSecondAuthorName\hspace{15pt}\thesisSecondAuthorLastName~~ICCI\\} 
-            \@ifundefined{thesisThirdAuthorName}{}{\>\thesisThirdTitleName~\thesisThirdAuthorName\hspace{15pt}\thesisThirdAuthorLastName~~ICCI\\} 
-            \@ifundefined{thesisFourthAuthorName}{}{\>\thesisFourthTitleName~\thesisFourthAuthorName\hspace{15pt}\thesisFourthAuthorLastName~~ICCI\\} 
-        DEGREE \> Bachelor of Engineering (\thesisDepENG)\\
-        PROJECT ADVISOR \> \tabfill{\thesisAdv,~\advDegree}\\
-        DATE OF GRADUATION \> \thesisGradDate
-    \end{tabbing}
-    \begin{center}
-        \@cpFont{ABSTRACT}
-    \end{center}\par
+	\addcontentsline{toc}{chapter}{ABSTRACT (ENGLISH)}
+	\fancyput(0.9cm,-25cm){           %   Set Page Frame (x,y) dimension 
+		\setlength{\unitlength}{1cm}%
+		\framebox(15.15,23.85){}%
+	}
+	\begin{tabbing}
+		\centerline{\@cpFont{\MakeUppercase{\thesisTitle}}}\\[2\baselineskip]
+		STUDENTS \hspace{2.8cm}\=\thesisFirstTitleName~\thesisFirstAuthorName\hspace{15pt}\thesisFirstAuthorLastName~~ICCI\\
+		\@ifundefined{thesisSecondAuthorName}{}{\>\thesisSecondTitleName~\thesisSecondAuthorName\hspace{15pt}\thesisSecondAuthorLastName~~ICCI\\} 
+		\@ifundefined{thesisThirdAuthorName}{}{\>\thesisThirdTitleName~\thesisThirdAuthorName\hspace{15pt}\thesisThirdAuthorLastName~~ICCI\\} 
+		\@ifundefined{thesisFourthAuthorName}{}{\>\thesisFourthTitleName~\thesisFourthAuthorName\hspace{15pt}\thesisFourthAuthorLastName~~ICCI\\} 
+		DEGREE \> Bachelor of Engineering (\thesisDepENG)\\
+		PROJECT ADVISOR \> \tabfill{\thesisAdv,~\advDegree}\\
+		DATE OF GRADUATION \> \thesisGradDate
+	\end{tabbing}
+	\begin{center}
+		\@cpFont{ABSTRACT}
+	\end{center}\par
 }
 {
-    \\[1\baselineskip]
-    \textbf{KEYWORDS} :\thesisKeywords
-    \\[1\baselineskip]
-    \pageref{lastpage}~Pages\\
-    \clearpage    
+	\\[1\baselineskip]
+	\textbf{KEYWORDS} :\thesisKeywords
+	\\[1\baselineskip]
+	\pageref{lastpage}~Pages\\
+	\clearpage    
 }
 \newcommand{\abstractENG}[1]{
-    \begin{abstractENGLayout}
-        \input{#1}
-    \end{abstractENGLayout}
+	\begin{abstractENGLayout}
+		\input{#1}
+	\end{abstractENGLayout}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -575,25 +575,25 @@ E-MAIL \> \csname thesis#2AuthorEmail\endcsname
 \renewcommand{\lstlistlistingname}{List of~\lstlistingname}% List of Listings ->สารบัญอัลกอริทึม
 
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=t,       % Caption position on the top (t) , 'b' for below             
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2,
-    basicstyle=\linespread{0.8}\footnotesize, 
-    xleftmargin=.02\textwidth, 
-    xrightmargin=.01\textwidth,
-    frame = single,
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=t,       % Caption position on the top (t) , 'b' for below             
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2,
+	basicstyle=\linespread{0.8}\footnotesize, 
+	xleftmargin=.02\textwidth, 
+	xrightmargin=.01\textwidth,
+	frame = single,
 }
 \lstset{style=mystyle} 
 \DeclareCaptionFormat{listing}{#1#2#3\par}
@@ -605,22 +605,22 @@ E-MAIL \> \csname thesis#2AuthorEmail\endcsname
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}} %Remove "Chapter Title" from from leftmark parameter  
 \gappto\captionsenglish{\def\chaptername{CHAPTER}}   %Change chapter title
 \titleformat{\chapter}
-    [display]     %Title display style {opts: hang, display, block, wrap, ... See in titlesec document} 
-    {\centering\@chapterFont}    %Text format for Chapter title (20pt)
-    {\chaptertitlename~\thechapter}    %Text of Chapter Title
-    {0pt}         % Width between Chapter title and Chapter name 
-    {\@chapterFont\MakeUppercase}  %Text format for Chapter name
+[display]     %Title display style {opts: hang, display, block, wrap, ... See in titlesec document} 
+{\centering\@chapterFont}    %Text format for Chapter title (20pt)
+{\chaptertitlename~\thechapter}    %Text of Chapter Title
+{0pt}         % Width between Chapter title and Chapter name 
+{\@chapterFont\MakeUppercase}  %Text format for Chapter name
 
 \titlespacing*{\chapter}
-    {0pt}
-    {0em}
-    {1.5\baselineskip}   %Chapter title margin
+{0pt}
+{0em}
+{1.5\baselineskip}   %Chapter title margin
 
 
 \let\OldChapter\chapter         %Backup in case need of lowercase header of chapter title
 \newcommand{\newchapter}[1]{%   %Go to \fancypagestyle{chapter} change "\leftmark" to "\cpTitle"
-\OldChapter{\uppercase{#1}}%    %And change "\chapter{}" to "\newchapter"
-\def\cpTitle{#1}%
+	\OldChapter{\uppercase{#1}}%    %And change "\chapter{}" to "\newchapter"
+	\def\cpTitle{#1}%
 }
 
 
@@ -630,37 +630,37 @@ E-MAIL \> \csname thesis#2AuthorEmail\endcsname
 \setcounter{secnumdepth}{3}     %set depth of number appearing in front of section, subsection, and subsubsection 
 
 \newcommand\Xsection{      % Note that, titleformat and titlespace do not meet requirements of section indentation then rewrite section cmd is necessary
-    \leftskip 0pt\@startsection {section}{1}    %command before starting the section, and Section level
-    {0pt}           % Left margin of section header
-    {\baselineskip}           % Top margin of section header
-    {0.1pt}         % Lower margin of section header (cannot be 0)
-    {\@secFont}     % Command before starting section title
+	\leftskip 0pt\@startsection {section}{1}    %command before starting the section, and Section level
+	{0pt}           % Left margin of section header
+	{\baselineskip}           % Top margin of section header
+	{0.1pt}         % Lower margin of section header (cannot be 0)
+	{\@secFont}     % Command before starting section title
 }
 \renewcommand\section[1]{\Xsection{#1}\setlength{\parindent}{1.6cm}} %command before starting subsection title and section content indentation
 
 %-------------------------------------------------
 \renewcommand*{\@seccntformat}[1]   %Space between section/subsection/subsubsection title and its number
 {%
-    \ifnum\pdfstrcmp{#1}{section}=0
-       \csname the#1\endcsname\hspace{0.5em} 
-    \else 
-        \ifnum\pdfstrcmp{#1}{subsection}=0
-            \csname the#1\endcsname\hspace{0.5em} 
-        \else
-            \csname the#1\endcsname\hspace{0.5em} 
-        \fi
-  \fi% 
+	\ifnum\pdfstrcmp{#1}{section}=0
+	\csname the#1\endcsname\hspace{0.5em} 
+	\else 
+	\ifnum\pdfstrcmp{#1}{subsection}=0
+	\csname the#1\endcsname\hspace{0.5em} 
+	\else
+	\csname the#1\endcsname\hspace{0.5em} 
+	\fi
+	\fi% 
 } 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Custom Subsection Layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\Xsubsection{% Note that, titleformat and titlespace do not meet requirements of section indentation then rewrite section cmd is necessary
-    \@startsection{subsection}{2}   %Command before starting Subsection title, and Subsection level
-    {0pt} %Left margin of Subsection title
-    {\baselineskip}   %Top margin of Subsection title
-    {0.1pt}   %Below margin of Subsection title
-    {\@subSecFont\leftskip 1.6cm}  %Command before starting subsection name
+	\@startsection{subsection}{2}   %Command before starting Subsection title, and Subsection level
+	{0pt} %Left margin of Subsection title
+	{\baselineskip}   %Top margin of Subsection title
+	{0.1pt}   %Below margin of Subsection title
+	{\@subSecFont\leftskip 1.6cm}  %Command before starting subsection name
 } 
 \renewcommand\subsection[1]{\Xsubsection{#1}\setlength{\parindent}{2.8cm}} %command before starting subsection title and subsection content indentation
 
@@ -668,11 +668,11 @@ E-MAIL \> \csname thesis#2AuthorEmail\endcsname
 %Custom Subsubsection Layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\Xsubsubsection{      % Note that, titleformat and titlespace do not meet requirements of section indentation then rewrite section cmd is necessary
-    \@startsection {subsubsection}{3}    %command before starting the section, and Section level
-    {0cm}           % Left margin of subsubsection header
-    {\baselineskip}           % Top margin of subsubsection header
-    {0.1pt}         % Lower margin of subsubsection header (cannot be 0)
-    {\@subSecFont\leftskip 3.2cm}     % Command before starting subsubsection title
+	\@startsection {subsubsection}{3}    %command before starting the section, and Section level
+	{0cm}           % Left margin of subsubsection header
+	{\baselineskip}           % Top margin of subsubsection header
+	{0.1pt}         % Lower margin of subsubsection header (cannot be 0)
+	{\@subSecFont\leftskip 3.2cm}     % Command before starting subsubsection title
 }
 \renewcommand\subsubsection[1]{\Xsubsubsection{#1}\setlength{\parindent}{4.7cm}} %command before starting subsection title and subsection content indentation
 
@@ -682,30 +682,30 @@ E-MAIL \> \csname thesis#2AuthorEmail\endcsname
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \let\oldAppendix\appendix
 \newcommand{\coverAppendix}{
-    \thispagestyle{empty}
-    \begin{center} \@chapterFont \vspace*{\fill}  APPENDICES \vspace*{\fill} \end{center}
-    \newpage
+	\thispagestyle{empty}
+	\begin{center} \@chapterFont \vspace*{\fill}  APPENDICES \vspace*{\fill} \end{center}
+	\newpage
 }
 %==== ToC Appendix List style setting======
 \newlength{\appendixToCPrefix}
 \settowidth{\appendixToCPrefix}{\appendixname}
 \makeatletter
 \g@addto@macro\appendix{%
-    \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}       %Set Appendix toc depth to 0
-    \renewcommand{\chaptertitlename}{APPENDIX}
-%    \renewcommand*{\thechapter}{\thaiAlph{chapter}}        %Thai Alphabet Number of Chapter
-    \titleformat{\chapter}
-        [display]     %Title display style {opts: hang, display, block, wrap, ... See in titlesec document} 
-        {\centering\@chapterFont}    %Text format for Chapter title (20pt)
-        {\chaptertitlename~\thechapter.}    %Text of Chapter Title
-        {0pt}         % Width between Chapter title and Chapter name 
-        {\@chapterFont}  %Text format for Chapter name
-    
-    
-    \addtocontents{toc}{%Add Appendix to ToC
-        \protect\renewcommand{\protect\cftchappresnum}{\MakeUppercase{\appendixname~}}%
-        \protect\renewcommand{\protect\cftchapnumwidth}{\dimexpr\appendixToCPrefix+2.5em}%
-    }%
+	\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}       %Set Appendix toc depth to 0
+	\renewcommand{\chaptertitlename}{APPENDIX}
+	%    \renewcommand*{\thechapter}{\thaiAlph{chapter}}        %Thai Alphabet Number of Chapter
+	\titleformat{\chapter}
+	[display]     %Title display style {opts: hang, display, block, wrap, ... See in titlesec document} 
+	{\centering\@chapterFont}    %Text format for Chapter title (20pt)
+	{\chaptertitlename~\thechapter.}    %Text of Chapter Title
+	{0pt}         % Width between Chapter title and Chapter name 
+	{\@chapterFont}  %Text format for Chapter name
+	
+	
+	\addtocontents{toc}{%Add Appendix to ToC
+		\protect\renewcommand{\protect\cftchappresnum}{\MakeUppercase{\appendixname~}}%
+		\protect\renewcommand{\protect\cftchapnumwidth}{\dimexpr\appendixToCPrefix+2.5em}%
+	}%
 }
 \makeatother
 
@@ -717,16 +717,16 @@ E-MAIL \> \csname thesis#2AuthorEmail\endcsname
 \setlength\bibindent{2em}   %set second line indentation width of reference
 \makeatletter           %Reconfig bibnat to use indentation with number-style (normally will work only author-year style)
 \renewcommand\NAT@bibsetnum[1]{\settowidth\labelwidth{\@biblabel{#1}}%
-   \setlength{\leftmargin}{\bibindent}\addtolength{\leftmargin}{\dimexpr\labelwidth+\labelsep\relax}%
-   \setlength{\itemindent}{-\bibindent}%
-   \setlength{\listparindent}{\itemindent}
-\setlength{\itemsep}{\bibsep}\setlength{\parsep}{\z@}%
-   \ifNAT@openbib
-     \addtolength{\leftmargin}{\bibindent}%
-     \setlength{\itemindent}{-\bibindent}%
-     \setlength{\listparindent}{\itemindent}%
-     \setlength{\parsep}{0pt}%
-   \fi
+	\setlength{\leftmargin}{\bibindent}\addtolength{\leftmargin}{\dimexpr\labelwidth+\labelsep\relax}%
+	\setlength{\itemindent}{-\bibindent}%
+	\setlength{\listparindent}{\itemindent}
+	\setlength{\itemsep}{\bibsep}\setlength{\parsep}{\z@}%
+	\ifNAT@openbib
+	\addtolength{\leftmargin}{\bibindent}%
+	\setlength{\itemindent}{-\bibindent}%
+	\setlength{\listparindent}{\itemindent}%
+	\setlength{\parsep}{0pt}%
+	\fi
 }
 \makeatother
 
@@ -751,19 +751,19 @@ E-MAIL \> \csname thesis#2AuthorEmail\endcsname
 \newcommand{\@advSignbox}[1]{\parbox[t]{147mm}{\raggedright\@sigULs\\#1}} %create Advisor signature line + name 
 
 \newcommand\tabfill[1]{     %Text wrapper in tabbing environment
-  \dimen@\linewidth
-  \advance\dimen@\@totalleftmargin
-  \advance\dimen@-\dimen\@curtab
-  \parbox[t]\dimen@{\raggedright #1\ifhmode\strut\fi}%
+	\dimen@\linewidth
+	\advance\dimen@\@totalleftmargin
+	\advance\dimen@-\dimen\@curtab
+	\parbox[t]\dimen@{\raggedright #1\ifhmode\strut\fi}%
 }
 
 %=============================
 \def\@thainumber#1{\expandafter\@@thainumber\number #1\@nil}    %Convert Numbers to Thai numerals 
 \def\@@thainumber#1{%
-  \ifx#1\@nil
-  \else
-  \char\numexpr#1+"E50\relax
-  \expandafter\@@thainumber\fi}
+	\ifx#1\@nil
+	\else
+	\char\numexpr#1+"E50\relax
+	\expandafter\@@thainumber\fi}
 \def\thaicounter#1{\expandafter\@thainumber\csname c@#1\endcsname}
 \def\thainumeral#1{\@@thainumber#1\@nil}
 %=============================

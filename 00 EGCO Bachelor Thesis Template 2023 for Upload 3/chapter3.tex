@@ -1,20 +1,21 @@
 \chapter{METHODOLOGY}
 \section{System Design}
 
-The purpose of the helmet detection system is to track helmet use from CCTV footage on a college campus. Data preparation, model training, and counting implementation are the three primary phases of the system. The first step involves converting campus CCTV video footage into image frames, which are subsequently labelled with helmet and unhelmeted head information using Roboflow. A customised YOLOv8 object detection model that is tuned for real-time performance is trained using the annotated dataset. After training, the model is incorporated into a real-time system that recognises and categorises heads and helmets by processing incoming video frames. In order to provide real-time statistics that facilitate safety compliance monitoring, a counting mechanism is integrated to monitor the quantity of helmets and heads seen within a designated area of interest.
+The purpose of the helmet detection system is to track helmet use from CCTV footage on a college campus. Three primary phases of the system comprise data preparation, model training and system implementation. The first step involves converting campus CCTV video footage into image frames, which are subsequently labelled with helmet and unhelmeted head information using Roboflow. A customised YOLOv8 object detection model that is tuned for real-time performance is trained using the annotated dataset. After training, the model is incorporated into a real-time system that recognises and categorises heads and helmets by processing incoming video frames. In order to provide real-time statistics that facilitate safety compliance monitoring, a counting mechanism is integrated to monitor the quantity of helmets and heads seen within a designated area of interest.
 
 
 \begin{figure}[H] % Optional: [H] requires \usepackage{float}
 	
 	\includegraphics[width=1\textwidth]{flowchart.jpg}
 	\vspace{0.5em}
+	\centering
 	\noindent\textbf{Figure 3.1} \\
 	\caption*{} % Optional: if you want a caption, otherwise keep empty
 	
 	
 \end{figure}
 
-The flowchart illustrates the overall workflow of the system. It begins first obtaining the dataset, we obtain them through the cctv footage of the university camera. Specifically spliting the video footages into 3 frames per second using Roboflow. Then annotate each frames splited, the annoated items are helmet and head, then using data augmentations from Roboflow. Then we can downlaod the datasets. Finally, using dataset downloaded we can train locally through data.yaml, the data augmentations details are to be specified in Chapter 3. After the training we will receive the weighted .pt file, the file is the model that will be used in the system in conjunction with the pre-trained model from YOLOv8. The Implementation phase is to apply the models, work with the video stream input. The bounding box and region of interest made from cv2. Using these zone we speparate the counting zone for helmet, head, and another zone to count person and helmet. As for the person we decided to count the head and the helmet to total to person as there are issues about the camera angel limiting the accuracy of the person detection. 
+The flowchart in the figure 3.1 illustrates the overall workflow of the system. First, the dataset is obtained from the footages of a cctv camera of Mahidol university. The video footages are split into 3 frames per second using Roboflow. Then annotate each frames splited, the annoated items are helmet and head, then using data augmentations from Roboflow. Then we can downlaod the datasets. Finally, using dataset downloaded we can train locally through data.yaml, the data augmentations details are to be specified in Chapter 3. After the training the weights of the trained model are obtained in a .pt file, the file is the model that will be used in the system in conjunction with the pre-trained model from YOLOv8. The Implementation phase is to apply the custom trained model called best\_17, work with the video stream input. The bounding box and region of interest(PUT IN PICTURE) made from cv2. Using these zone we speparate the counting zone for helmet, head, and another zone to count person and helmet. As for the person we decided to count the head and the helmet to total to person as there are issues about the camera angel limiting the accuracy of the person detection. 
 
 After implementing the program with the model, we use cv2 to take snapshot of the frame as when helmet violation occur. The system links and uses Google API, to store the detection evidence of the scenario. The Google Sheet API will append new rows each time a head detection occur.  The image are visible, and stored by Google Drive API, to check the instances where it happens.
 
