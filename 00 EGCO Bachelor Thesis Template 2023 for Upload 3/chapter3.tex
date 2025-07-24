@@ -15,12 +15,21 @@ The purpose of the helmet detection system is to track helmet use from CCTV foot
 	
 \end{figure}
 
-The flowchart in the figure 3.1 illustrates the overall workflow of the system. First, the dataset is obtained from the footages of a cctv camera of Mahidol university. The video footages are split into 3 frames per second using Roboflow. Then annotate each frames splited, the annoated items are helmet and head, then using data augmentations from Roboflow. Then we can downlaod the datasets. Finally, using dataset downloaded we can train locally through data.yaml, the data augmentations details are to be specified in Chapter 3. After the training the weights of the trained model are obtained in a .pt file, the file is the model that will be used in the system in conjunction with the pre-trained model from YOLOv8. The Implementation phase is to apply the custom trained model called best\_17, work with the video stream input. The bounding box and region of interest(PUT IN PICTURE) made from cv2. Using these zone we speparate the counting zone for helmet, head, and another zone to count person and helmet. As for the person we decided to count the head and the helmet to total to person as there are issues about the camera angel limiting the accuracy of the person detection. 
+The flowchart in the figure 3.1 illustrates the overall workflow of the system. First, the dataset is obtained from the footages of a cctv camera of Mahidol university. The video footages are split into 3 frames per second using Roboflow. Then annotate each frames splited, the annoated items are helmet and head, then using data augmentations from Roboflow. Then we can downlaod the datasets. Finally, using dataset downloaded we can train locally through data.yaml, the data augmentations details are to be specified in Chapter 3. After the training the weights of the trained model are obtained in a .pt file, the file is the model that will be used in the system in conjunction with the pre-trained model from YOLOv8. The Implementation phase is to apply the custom trained model called best\_17, work with the video stream input. The bounding box and region of interest seen in figure 3.2.made from cv2. 
+
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{ROI.png}
+	
+	\vspace{0.5em}
+	\textbf{Figure 3.2: Dataset Image}
+`\end{center}
+
+Using these zone we speparate the counting zone for helmet, head, and another zone to count person and helmet. As for the person we decided to count the head and the helmet to total to person as there are issues about the camera angel limiting the accuracy of the person detection. 
 
 After implementing the program with the model, we use cv2 to take snapshot of the frame as when helmet violation occur. The system links and uses Google API, to store the detection evidence of the scenario. The Google Sheet API will append new rows each time a head detection occur.  The image are visible, and stored by Google Drive API, to check the instances where it happens.
 
 \section{Data}
-Dataset: videos of riders wearing and not wearing helmets, collected from local sources which is gate six Mahidol University CCTV camera. Videos will then be split in Roboflow which allow custom annotation and training.
+Dataset: videos of the entrance which contain motorcycle coming in and out the campus, collected from local sources which is gate six Mahidol University CCTV camera. The videos are split into frames using Roboflow and then each frame are use for annotations.
 \newline
 \newline
 Annotations: Create two classes. first class containing the bouding box of helmet user only and the second class containing head(which is non-helmet user.)
@@ -30,96 +39,91 @@ Preprocessing: Includes resizing images to 640x640 pixels, normalizing pixel val
 \newpage
 \section{Custom Model}
 \textbf{YOLOv8 Architecture:}
-The YOLOv8 architecture was selected for this project due to its state-of-the-art performance in object detection, offering a balance between real-time inference speed and high accuracy. YOLOv8 (You Only Look Once version 8), developed by Ultralytics, is known for its streamlined architecture and improved detection performance over its predecessors (e.g., YOLOv5, YOLOv7), particularly in low-light or occluded environments—conditions often encountered in real-world surveillance footage. Specifically for this project, YOLOv8 is supported by Roboflow, a tool important for training and annotating helmet and head classes easily. Additionally YOLOv8 was easier to set up and supported by developers and communities in a larger scale than other YOLO versions. This will be essentials in debugging and implementing additional tools like trackers. 
+YOLOv8 (You Only Look Once version 8), developed by Ultralytics, is known for its streamlined architecture and improved detection performance over its predecessors (e.g., YOLOv5, YOLOv7), particularly in low-light or occluded environments—conditions often encountered in real-world surveillance footage. The YOLOv8 architecture is used for this project due to its state-of-the-art performance in object detection, offering a balance between real-time inference speed and high accuracy. Specifically for this project, YOLOv8 is a tool that is important for training and differentiating helmet and head classes easily. Additionally YOLOv8 is easier to set up and supported by developers and communities in a larger scale than other YOLO versions.
 
 Despite the availability of newer object detection models such as YOLO-NAS or YOLOv9, YOLOv8 remains a highly reliable and widely supported choice. In this project, YOLOv8 was used to create a custom-trained model that focuses on five specific object classes: motorcycles, helmets, crosswalks, pedestrians, and lanes. However, the two most critical objects for our safety analysis—helmet and head—were prioritized in both annotation and evaluation.
 
-
-\begin{center}
-	\begin{minipage}{0.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{roboflow.png}
-		\vspace{0.5em}
-		
-		\textbf{Figure 3.3.1: Roboflow Image}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{yolo.png}
-		\vspace{0.5em}
-		
-		\textbf{Figure 3.3.2: YOLO Image}
-	\end{minipage}
-\end{center}
 
 To obtain the custom model for "head", and "helmet" detection we must first upload the datasets into Roboflow website in figure 3.1. Roboflow will allow users to specifically annotate desired classes, which after annotating said datasets, we can download directly from Roboflow the annotated datasets which we can train locally. Training can be done localy or through Google Collab. However due to limitations we used Vistual Studio as a medium to train the datasets from Roboflow. 
 
 \newpage
 
-\noindent\textbf{Training Process:} As for our goals the training processes for our custom YOLOv8 model consisted of several key stages, summarized below:
+\noindent\textbf{Training Process:} The goal of the training process for our custom YOLOv8 model was to develop a high-accuracy object detection system specifically tailored to key safety-related classes: helmet, head (non-helmeted rider), motorcycle, and pedestrian. By fine-tuning the YOLOv8 architecture with annotated CCTV footage, the objective was to enable the model to accurately distinguish between helmeted and non-helmeted motorcyclists under real-world conditions such as varying lighting, occlusion, and motion blur. The expected outcome was a model that not only generalizes well across diverse scenarios but also minimizes false positives and false negatives—particularly for helmet and head detection, which are not part of the default YOLO classes. This improved detection performance would then serve as the foundation for a reliable counting mechanism, supporting downstream analytics such as helmet usage rates. Ultimately, the training process aimed to contribute to traffic safety initiatives by enabling automated and scalable monitoring of motorcyclist behavior using CCTV footage.
 
 \begin{itemize}
-	\item \textbf{Data Collection:} The dataset was compiled from real CCTV footage recorded on campus at Mahidol University’s Faculty of Engineering. The footage was collected over a span of seven days during the morning rush hour (8:00–10:00 AM), totaling approximately two hours. This time window was chosen to capture peak motorcycle and pedestrian traffic for accurate helmet usage monitoring.  The image below is an example of a snapshot from the dataset, the actually dataset is a video as mention.
+	\item \textbf{Data Collection:} The dataset was compiled from real CCTV footage recorded on campus at Mahidol University’s Faculty of Engineering. The footage was collected over a span of seven days during the morning rush hour (8:00–10:00 AM), totaling approximately two hours. This time window was chosen to capture peak motorcycle and pedestrian traffic for accurate helmet usage monitoring.  Figure 3.2 is an example of a snapshot from the dataset, the actually dataset is a video as mention.
 	\begin{center}
 		\includegraphics[width=0.5\textwidth]{Datasets.png}
 		
 		\vspace{0.5em}
-		\textbf{Figure 3.3.3: Dataset Image}
+		\textbf{Figure 3.2: Dataset Image}
 	\end{center}
 	
-	\item \textbf{Frame extracgtion:} Using the cv2 module from OpenCV, video footage was processed and extracted into still frames. To ensure computational efficiency while retaining sufficient information, frames were sampled at a rate of 3 frames per second (FPS). The extracted images were then uploaded to Roboflow, a computer vision dataset platform, for annotation and augmentation. However for Roboflow they provide a function to slpit the frames within the website and we will be extracting them with Roboflow instead. In the figure below is an example of frame extraction function after uploading the datasets into Roboflow. Extracting the video datasets into frames, means that we can annotate each frames specifically we have three frames across one second. This is to also ensure that we do not have to much datasets, and it also depends on how much the desire classes appears on the videos. For our case there are enough objects across three frames per second to annotate.
+	\item \textbf{Frame extraction:} Using the cv2 module from OpenCV, video footage was processed and extracted into still frames. To ensure computational efficiency while retaining sufficient information, frames were sampled at a rate of 3 frames per second (FPS). The extracted images were then uploaded to Roboflow, a computer vision dataset platform, for annotation and augmentation. However for Roboflow, it provides a frame splitting function within the website and aternatively, the frame splitting can be done here directly. In the figure 3.3 is an example of frame extraction function after uploading the datasets into Roboflow. Extracting the video datasets into frames, means that we can annotate each frames specifically we have three frames across one second. This is to also ensure that we do not have to much datasets, and it also depends on how much the desire classes appears on the videos. For our case there are enough objects across three frames per second to annotate.
 	\begin{center}
 		\includegraphics[width=0.5\textwidth]{Frameex.png}
 		
 		\vspace{0.5em}
-		\textbf{Figure 3.3.3: Frame Extraction Image}
+		\textbf{Figure 3.3: Frame Extraction Image}
 	\end{center}
 	
-	\item\textbf{Annotation:} Within Roboflow, bounding boxes were manually drawn around the target objects—specifically helmets and heads—to create accurate ground truth data for supervised learning. Annotations were carefully reviewed to ensure consistency, especially in challenging cases such as partial occlusions or non-standard helmet designs. The images belows show an example how we draw the bounding boxes for the classes. Drawing the bouding box this way minimizes detection errors and allows the YOLOv8 custom model to focus on the objects more precisely. We encourage to draw the bounding box as close to the objects as possible.
+	\item\textbf{Annotation:} Within Roboflow, bounding boxes were manually drawn around the target to create accurate ground truth data for supervised learning. In this project context, head and helmets are used to differentiate between a person with  a helmet on and a person without  a helmet on. Annotations were carefully reviewed to ensure consistency, especially in challenging cases such as partial occlusions or non-standard helmet designs. The figure 3.4 show an example how we draw the bounding boxes for the classes. The bounding boxes allow to make an area of detection to be easily differentiate between different classes. Therefore, the bounding box, which has to be drawn manually require to draw closely to the objects, which in this case is the head of the riders. Therefore, the differentiation between heads without helmet can be distinct from the head with helmet with minimal background. To ensure optimal detection performance, we recommend drawing bounding boxes as tightly as possible around the objects. This guideline is particularly important for researchers or practitioners who intend to follow a similar training approach or replicate our methodology.
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{Anotate.png}
 		
 		\vspace{0.5em}
-		\textbf{Figure 3.3.4: Annotation Image}
+		\textbf{Figure 3.4: Annotation Image}
 	\end{center}
 	\newpage
-	\item \textbf{Dataset Splitting:}  The annotated dataset was divided into training, validation, and testing sets with a ratio of 70\% training, 20\% validation, and 10]\% testing. This split was chosen to ensure sufficient training samples while preserving a robust validation set to monitor overfitting and a separate test set for unbiased evaluation. Using this data split is widely uses apporach in machine learning as it offers balnce between training, validation, and testing. 70\% of the data use to train allows it to learn patterns from the annotation effectively. It is effieicent and enough for pattern recognition. The 20\% is very important as becuase as this portion is used to check how well the model is learning. Additionally to help tune with the hyperparameters and prevent overfitting. Overfiting occurs when a  model memorizes the training data too well and fails to perform on new, unseen data.  Lastly the 10\% is reserved for testing, for unbaised evaluation of the model. The split ensures thatt the model has enough data to learn, and adjust. This process will occur after completing the annotation process.		
+	\item \textbf{Dataset Splitting:}  The annotated dataset was divided into three subsets shown in figure 3.5: training, validation, and testing, following a common 70\%–20\%–10\% split. This allocation was selected to ensure a sufficient volume of data for effective model training, while also preserving dedicated sets for model evaluation and tuning. Specifically, 70\% of the data was used for training, providing the model with enough examples to learn relevant patterns and features from the annotated objects. The validation set, comprising 20\% of the data, played a critical role in monitoring the model's performance during training and guiding hyperparameter tuning to mitigate overfitting. Overfitting occurs when a model learns the training data too well, resulting in poor generalization to unseen data. The remaining 10\% of the data was reserved as a test set, which serves as an unbiased benchmark to evaluate the final model's performance. This partitioning strategy is widely adopted in machine learning workflows as it offers a balanced and effective framework for training, validating, and testing models. The dataset split was performed following the completion of the annotation process.
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{Split.png}
 		
 		\vspace{0.5em}
-		\textbf{Figure 3.3.5: Spliting Datasets Image}
+		\textbf{Figure 3.5: Spliting Datasets Image}
 	\end{center}
-	At this step we can also augmentate our data through data augmentation from Roboflow seen in Figure 3.3.5. Data augmentation techniques applied are horizontal flipping, contrast enhancement, and brightness variation were applied to improve the model’s robustness to environmental variations such as lighting conditions or camera angles.
+	\noindent\hspace{2.5em}Figure 3.6 illustrates the data augmentation techniques used during the model training process. These augmentations are divided into two categories: image-level augmentations and bounding box-level augmentations.
+	
+	
+	\noindent\hspace{2.5em}The image-level augmentations applied include horizontal flipping, rotation, grayscale conversion, and exposure adjustment. These transformations alter the appearance of the entire image, thereby increasing the model’s robustness to variations in lighting, contrast, orientation, and color. Such augmentations simulate real-world environmental changes, helping the model generalize better across diverse scenes captured by CCTV footage.
+	
+	
+	\noindent\hspace{2.5em}Bounding box-level augmentations, although not all applied in this study due to premium feature restrictions (as indicated by the “Upgrade” tags), would typically involve transformations such as crop, rotate, and shear applied directly to annotated objects. These operations preserve the alignment between bounding boxes and their corresponding objects, making them highly valuable in maintaining annotation integrity during geometric changes.
+	
+	
+	\noindent\hspace{2.5em}In this project, specific augmentations such as horizontal flip, contrast enhancement, and brightness variation were implemented to improve detection performance under fluctuating lighting conditions and camera perspectives. These augmentations contributed to building a more resilient model capable of operating accurately across diverse visual inputs encountered in real-world traffic monitoring scenarios.
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{Augmentation.png}
 		
 		\vspace{0.5em}
-		\textbf{Figure 3.3.6: Augmentation Image}
+		\textbf{Figure 3.6: Augmentation Image}
 	\end{center}
 	
-	\item \textbf{Data Configuration and Training:} Aftering Spliting the data we can download the dataset files from Roboflow. The file will be splited to 70/20/10, train, validate, test. A data.yaml file will have to be  configured to specify class names, dataset paths, and other training parameters. The file is then imported imported into Visual Studio Code (VS Code) for model development and training using the Ultralytics YOLOv8 framework. The images below shows how data.yamlfile is set up.
+	\item \textbf{Data Configuration and Training:} The dataset used in this project consisted of 4,359 annotated images, divided into training, validation, and testing sets at a ratio of 70\%, 20\%, and 10\%, respectively. This split ensures a balanced distribution of data across the learning, tuning, and evaluation phases, supporting both model generalization and performance assessment.
+	
+	A data.yaml file was configured to organize the dataset structure and define training parameters. This configuration file specifies the relative paths to each data split, the number of object classes, and the corresponding class names used in the detection task. It acts as the main reference for the YOLOv8 framework to interpret dataset composition during training.
+	
+	Once the dataset and configuration were defined, the training process was initiated using the YOLOv8 framework. The training pipeline was guided by key hyperparameters—such as epoch count, image size, batch size, and learning rate—which were carefully chosen to match the dataset characteristics and available computational resources. These settings were not only critical to detection accuracy but also influenced the efficiency and stability of the model training process. Detailed descriptions and justifications of these hyperparameters are provided in the Hyperparameter Configuration section of this report.
+	
+	Upon completion of training, the model outputs a .pt file, which contains the learned weights, model architecture, and training metadata. This file represents the finalized version of the trained YOLOv8 model and can be used for real-time inference or integrated into post-processing tasks such as counting and visualization pipelines.
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{Files.png}
 		
 		\vspace{0.5em}
-		\textbf{Figure 3.3.7:  Files from downloaded Dataset }
+		\textbf{Figure 3.7:  Files from downloaded Dataset }
 	\end{center}
-	The detailedconfigurations needed used inside data.yaml is located in the Hyperparameter section.
-	Hyperparameters, such as learning rate and non-maximum suppression (NMS) thresholds, were tuned for optimal performance.  After applying the hyparameters, we can start the training through the data.yaml file. After the training has been finish, the wieghted model files will be created in runs/detect. Select the .pt files as a yolo model this will be the model that we will use after all the steps above are complete. For our project be have a total of 4,359 images that are annotated for custom model. The image belows shows the data.yaml content. We will use this to obtain a custom weighted  .pt file.
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{yaml.png}
 		
 		\vspace{0.5em}
-		\textbf{Figure 3.3.8:  Data.yaml file in VS}
+		\textbf{Figure 3.8:  Data.yaml file in VS}
 	\end{center}
 \end{itemize}
 
 \section{\textbf{Counting System}}
 \subsection{Helmet and Head}
 
-\noindent\hspace{2.5em}After customizing our YOLOv8 model, we implemented a counting system to track the number of helmets, unhelmeted heads, persons, and motorcycles detected in the video.
+\noindent\hspace{2.5em}After customizing our YOLOv8 model, which is called best\_17, by training with the dataset we have collected from CCTV footages, we implemented a counting system to track the number of helmets and unhelmeted heads by using double line counting method, while  persons and motorcycles used Bot\_Sort tracker to detected in the video.
 
 
 \noindent\hspace{2.5em}For helmet and head counting, we applied a double-line counting method. This defines a "counting zone" using two vertical lines, and only counts detections whose bounding box centers fall within the zone. To prevent duplicate counting across frames, we used a rolling memory of the last ten frames. If a new detection is within a set distance (e.g., 30 pixels) of a previously counted object of the same type, it is ignored.
@@ -129,30 +133,30 @@ This method improves reliability by reducing overcounting and stabilizing result
 	\centering
 	\includegraphics[width=0.5\textwidth]{headhel1.png}
 	\vspace{0.5em}
-	\caption*{\textbf{Figure 3.2}}
+	\caption*{\textbf{Figure 3.9}}
 \end{figure}
 \hfill
 % Right side: Figure 3.3
 
-\noindent\hspace{2.5em}Figure 3.2 illustrates the designated counting zone used for helmet and head detection. The image shows two vertical yellow lines placed 150 pixels apart, which define the area for double-line counting. When an object passes through both lines in sequence, it is registered as a valid count. This method helps reduce duplicate or false counts caused by temporary detection overlaps or brief tracking loss.
+\noindent\hspace{2.5em}Figure 3.9 illustrates the designated counting zone used for helmet and head detection. The image shows two vertical yellow lines placed 150 pixels apart, which define the area for double-line counting. When an object passes through both lines in sequence, it is registered as a valid count. This method helps reduce duplication or false counts caused by temporary detection overlaps or brief tracking loss.
 
 \begin{figure}[H] % Optional: [H] requires \usepackage{float}
 	\centering
 	\includegraphics[width=0.5\textwidth]{headhel2.png}
 	\vspace{0.5em}
-	\caption*{\textbf{Figure 3.3}}
+	\caption*{\textbf{Figure 3.10}}
 \end{figure}
 
-\noindent\hspace{2.5em}Figure 3.3 shows an example of the counting system in action when objects, such as a helmet and/or a head, enter the counting zone. As seen in the image, the objects are detected and labeled while passing through the two vertical lines, triggering the counting logic. This illustrates how the system identifies and differentiates helmeted and non-helmeted riders within the defined zone.
+\noindent\hspace{2.5em}Figure 3.10 shows an example of the double line counting system in action when objects, such as a helmet and/or a head, enter the counting zone. As seen in the image, the objects are detected and labeled with text and different colors while passing through the two vertical lines, triggering the counting logic. Two yellow vertical lines are the double counting line which are the region to only count head and/or helmet passing by. Green are the bounding box color of person, dark blue are bounding box color of motorcycle. Red are the bounding box of helmet and light blue are the bounding box of head(non-helmet). This illustrates how the system identifies and differentiates helmeted and non-helmeted riders within the defined zone.
 
 \begin{figure}[H] % Optional: [H] requires \usepackage{float}
 	\centering
 	\includegraphics[width=0.5\textwidth]{headhel3.png}
 	\vspace{0.5em}
-	\caption*{\textbf{Figure 3.4}}
+	\caption*{\textbf{Figure 3.11}}
 \end{figure}
 
-\noindent\hspace{2.5em}Figure 3.4 displays the result of the helmet and head counting process, shown at the top-right corner of the screen. These values are updated in real-time after the system detects and counts objects passing through the counting zone. This visual feedback confirms the detection and classification outcome for each rider, distinguishing between helmeted and non-helmeted individuals.
+\noindent\hspace{2.5em}Figure 3.11 displays the result of the helmet and head counting process, shown at the top-right corner of the screen. These values are updated in real-time after the system detects and counts objects passing through the counting zone. This visual feedback confirms the detection and classification outcome for each rider, distinguishing between helmeted and non-helmeted individuals.
 
 
 
@@ -215,7 +219,7 @@ This method improves reliability by reducing overcounting and stabilizing result
 
 
 \section{Hyperparameter Configurations}
-During the training process, serveral key herparameters were carefufully selected to balace the performce, the model accuracy and accordingly to our local computation resrouces.
+During the training process, serveral key herparameters were manually selected to balace the performce, the model accuracy and accordingly to our local computation resrouces.
 
 \textbf{Epochs} = 500, this is to ensure suffieicent exposeure to the training datasets. It will allow the model to learn patterns, and improve generalization overtime. However we can stop the early depending on our resources and depending on overfitting.
 
@@ -228,7 +232,7 @@ During the training process, serveral key herparameters were carefufully selecte
 		\includegraphics[width=\linewidth]{ano1.png}
 		\vspace{0.7em}
 		
-		\textbf{Figure 3.4.1: Resized Image }
+		\textbf{Figure 3.6.1: Resized Image }
 	\end{minipage}
 	\hfill
 	\begin{minipage}{0.45\textwidth}
@@ -236,7 +240,7 @@ During the training process, serveral key herparameters were carefufully selecte
 		\includegraphics[width=\linewidth]{ano2.png}
 		\vspace{0.5em}
 		
-		\textbf{Figure 3.4.2: Resized Image }
+		\textbf{Figure 3.6.2: Resized Image }
 	\end{minipage}
 \end{center}
 
@@ -251,10 +255,31 @@ During the training process, serveral key herparameters were carefufully selecte
 
 \section{Performace Evaluation}
 
-\noindent\hspace{2.5em}The trained YOLOv8 model was evaluated using:
-mAP: To quantify detection accuracy.
-Confusion matrix: To identify true positives, false positives, and negatives.
-The purpose of the performance evaluation is to help our team, look at the development of the different models. The benefits of finding the best model is to use them for the best accuracy for the counting systems.
+\noindent\hspace{2.5em}The trained YOLOv8 models were evaluated using standard object detection metrics: \textbf{mean Average Precision (mAP)}, \textbf{precision}, and \textbf{recall}. These metrics provide a quantitative assessment of detection accuracy and were used to track the progression and performance of each model iteration. The primary metric, \textbf{mAP}, measures the area under the precision-recall curve and is defined as:
+
+\[
+\text{mAP} = \frac{1}{N} \sum_{i=1}^{N} \text{AP}_i
+\]
+
+where $\text{AP}_i$ represents the Average Precision for class $i$, and $N$ is the total number of classes. mAP offers a comprehensive evaluation by considering both false positives and false negatives, making it a reliable indicator of overall model accuracy.
+
+\textbf{Precision}, defined as
+
+\[
+\text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}},
+\]
+
+measures the proportion of correctly predicted positive detections among all predicted positives. High precision indicates that most detections are correct, which is crucial for reducing false alarms in safety-critical applications like helmet detection.
+
+\textbf{Recall}, defined as
+
+\[
+\text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}},
+\]
+
+reflects the model's ability to correctly identify all relevant objects in the frame. High recall ensures that few objects are missed, which is particularly important for applications where under-detection can compromise system reliability.
+
+Together, these metrics were used to compare multiple trained models, guiding the selection of the best-performing version for downstream tasks such as accurate counting of helmets and heads in real-world traffic footage.
 
 \begin{center}
 	\includegraphics[width=1\textwidth]{performance.eva.png}
@@ -266,7 +291,7 @@ The purpose of the performance evaluation is to help our team, look at the devel
 \noindent\hspace{2.5em}The evaluation results in figure 3.7 demonstrate that the best custom YOLOv8 model performs strongly in detecting both helmet and heads(non-helmet), with particularly high accuracy in helmet detection. Overall, the model achieved a precision of 0.901 and recall of 0.862 across all classes, indicating reliable and consistent predictions. For the helemt class specifically, the model attained satisfying performance with a precision of 0.934, recall of 0.913, and a high mAP@0.50 of 0.959. This suggests that the model can effectively identify helmets with minimal false positives and false negatives. In comparison, the head class yielded slightly lower results, with a precision of 0.869, recall of 0.811, and mAP@0.50 of 0.889, reflecting more variation or complexity in detecting uncovered heads. The overall mAP@0.50:0.95 score of 0.497, while moderate, still indicates acceptable performance under stricter localization conditions. These results affirm the model’s suitability for real-time helmet usage monitoring, particularly in scenarios where accurate helmet detection is critical.
 
 \begin{center}
-	\includegraphics[width=0.5\textwidth]{performance.eva2.png}
+	\includegraphics[width=1\textwidth]{performance.eva2.png}
 	
 	\vspace{0.5em}
 	\textbf{Figure 3.8}

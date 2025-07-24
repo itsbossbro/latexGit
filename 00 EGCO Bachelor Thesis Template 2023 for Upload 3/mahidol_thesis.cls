@@ -309,6 +309,7 @@ SizeFeatures = {Size=12},
 %Entitled page layout II
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\entitlepageTwo}{
+<<<<<<< HEAD
 	\thispagestyle{empty}
 	\begin{spacing}{1.15}
 		\begin{center}
@@ -330,6 +331,29 @@ SizeFeatures = {Size=12},
 		\end{center}
 	\end{spacing}
 	\clearpage
+=======
+\thispagestyle{empty}
+\begin{spacing}{1.15}
+\begin{center}
+Thesis\\
+entitled\\
+\@cpFont{\MakeUppercase{\thesisTitle}}
+\\[\baselineskip]
+was submitted to the Faculty of Engineering \& International College,\\
+Mahidiol University\\
+for the degree of Bachelor of Engineering (\thesisDepENG)\\
+on\\
+\thesisGradDate
+\vfill
+\noindent\@advSignbox{\Chair, \ChairDegree\\ Adivsor}
+\\[4\baselineskip]
+\noindent\@advSignbox{\committeeI, \committeeIDegree\\Co-Advisor}
+\\[4\baselineskip]
+\noindent\@advSignbox{\committeeII, \committeeIIDegree\\Co-Advisor}
+\end{center}
+\end{spacing}
+\clearpage
+>>>>>>> 08e24629182df5c2d205fb99d9c35c31a42ee953
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
